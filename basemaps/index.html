@@ -21,7 +21,7 @@
         <link rel="next" href="../bokehmap/">
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
@@ -2230,7 +2230,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/basemaps.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_xyz_dict</span><span class="p">(</span><span class="n">free_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">france</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_xyz_dict</span><span class="p">(</span><span class="n">free_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">france</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a dictionary of xyz services.</span>
 
 <span class="sd">    Args:</span>
@@ -2387,7 +2387,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/basemaps.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">xyz_to_bokeh</span><span class="p">():</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">xyz_to_bokeh</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert xyz tile services to bokeh tile layers.</span>
 
 <span class="sd">    Returns:</span>
@@ -2457,7 +2457,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/basemaps.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">xyz_to_folium</span><span class="p">():</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">xyz_to_folium</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert xyz tile services to folium tile layers.</span>
 
 <span class="sd">    Returns:</span>
@@ -2558,7 +2558,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/basemaps.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">xyz_to_heremap</span><span class="p">():</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">xyz_to_heremap</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert xyz tile services to hermap tile layers.</span>
 
 <span class="sd">    Returns:</span>
@@ -2696,7 +2696,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/basemaps.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">xyz_to_leaflet</span><span class="p">():</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">xyz_to_leaflet</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert xyz tile services to ipyleaflet tile layers.</span>
 
 <span class="sd">    Returns:</span>
@@ -2760,7 +2760,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/basemaps.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">xyz_to_plotly</span><span class="p">():</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">xyz_to_plotly</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert xyz tile services to plotly tile layers.</span>
 
 <span class="sd">    Returns:</span>
@@ -2833,7 +2833,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/basemaps.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">xyz_to_pydeck</span><span class="p">():</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">xyz_to_pydeck</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert xyz tile services to pydeck custom tile layers.</span>
 
 <span class="sd">    Returns:</span>

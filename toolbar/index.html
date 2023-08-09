@@ -21,7 +21,7 @@
         <link rel="next" href="../workshops/FOSS4G_2021/">
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
@@ -2402,7 +2402,7 @@
 
 
 <h2 id="leafmap.toolbar.census_widget" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">census_widget</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">census_widget</span><span class="p">(</span><span class="n">m</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.toolbar.census_widget" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -2426,7 +2426,7 @@
         <td><code>m</code></td>
         <td><code>leafmap.Map</code></td>
         <td><p>The leaflet Map object. Defaults to None.</p></td>
-        <td><code>None</code></td>
+        <td><em>required</em></td>
       </tr>
   </tbody>
 </table>
@@ -2447,7 +2447,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/toolbar.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">census_widget</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">census_widget</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Widget for adding US Census data.</span>
 
 <span class="sd">    Args:</span>
@@ -2627,7 +2627,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/toolbar.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">change_basemap</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">&quot;topright&quot;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">change_basemap</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">position</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;topright&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Widget for changing basemaps.</span>
 
 <span class="sd">    Args:</span>
@@ -2697,7 +2697,7 @@
 
 
 <h2 id="leafmap.toolbar.download_osm" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">download_osm</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">download_osm</span><span class="p">(</span><span class="n">m</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.toolbar.download_osm" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -2721,7 +2721,7 @@
         <td><code>m</code></td>
         <td><code>leafmap.Map</code></td>
         <td><p>The leaflet Map object. Defaults to None.</p></td>
-        <td><code>None</code></td>
+        <td><em>required</em></td>
       </tr>
   </tbody>
 </table>
@@ -2742,7 +2742,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/toolbar.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">download_osm</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">download_osm</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Widget for downloading OSM data.</span>
 
 <span class="sd">    Args:</span>
@@ -3316,7 +3316,7 @@
 
 
 <h2 id="leafmap.toolbar.inspector_gui" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">inspector_gui</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;topright&#39;</span><span class="p">,</span> <span class="n">opened</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">inspector_gui</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;topright&#39;</span><span class="p">,</span> <span class="n">opened</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.toolbar.inspector_gui" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -3340,7 +3340,7 @@
         <td><code>m</code></td>
         <td><code>leafmap.Map</code></td>
         <td><p>The leaflet Map object. Defaults to None.</p></td>
-        <td><code>None</code></td>
+        <td><em>required</em></td>
       </tr>
   </tbody>
 </table>
@@ -3361,7 +3361,11 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/toolbar.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">inspector_gui</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">&quot;topright&quot;</span><span class="p">,</span> <span class="n">opened</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">inspector_gui</span><span class="p">(</span>
+    <span class="n">m</span><span class="p">,</span>
+    <span class="n">position</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;topright&quot;</span><span class="p">,</span>
+    <span class="n">opened</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates a tool GUI template using ipywidgets.</span>
 
 <span class="sd">    Args:</span>
@@ -3794,7 +3798,12 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/toolbar.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">layer_manager_gui</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">&quot;topright&quot;</span><span class="p">,</span> <span class="n">opened</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_widget</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">layer_manager_gui</span><span class="p">(</span>
+    <span class="n">m</span><span class="p">,</span>
+    <span class="n">position</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;topright&quot;</span><span class="p">,</span>
+    <span class="n">opened</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">return_widget</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a layer manager widget.</span>
 
 <span class="sd">    Args:</span>
@@ -4293,7 +4302,7 @@
 
 
 <h2 id="leafmap.toolbar.oam_search_gui" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">oam_search_gui</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;topright&#39;</span><span class="p">,</span> <span class="n">opened</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">oam_search_gui</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;topright&#39;</span><span class="p">,</span> <span class="n">opened</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.toolbar.oam_search_gui" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -4317,7 +4326,7 @@
         <td><code>m</code></td>
         <td><code>leafmap.Map</code></td>
         <td><p>The leaflet Map object. Defaults to None.</p></td>
-        <td><code>None</code></td>
+        <td><em>required</em></td>
       </tr>
   </tbody>
 </table>
@@ -4338,7 +4347,11 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/toolbar.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">oam_search_gui</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">&quot;topright&quot;</span><span class="p">,</span> <span class="n">opened</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">oam_search_gui</span><span class="p">(</span>
+    <span class="n">m</span><span class="p">,</span>
+    <span class="n">position</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;topright&quot;</span><span class="p">,</span>
+    <span class="n">opened</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates a tool GUI template using ipywidgets. Icons can be found at https://fontawesome.com/v4/icons</span>
 
 <span class="sd">    Args:</span>
@@ -6520,7 +6533,7 @@
 
 
 <h2 id="leafmap.toolbar.search_basemaps" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">search_basemaps</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">search_basemaps</span><span class="p">(</span><span class="n">m</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.toolbar.search_basemaps" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -6544,7 +6557,7 @@
         <td><code>m</code></td>
         <td><code>leafmap.Map</code></td>
         <td><p>The leaflet Map object. Defaults to None.</p></td>
-        <td><code>None</code></td>
+        <td><em>required</em></td>
       </tr>
   </tbody>
 </table>
@@ -6565,7 +6578,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/toolbar.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">search_basemaps</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">search_basemaps</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The widget for search XYZ tile services.</span>
 
 <span class="sd">    Args:</span>
@@ -6770,7 +6783,7 @@
 
 
 <h2 id="leafmap.toolbar.search_geojson_gui" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">search_geojson_gui</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">search_geojson_gui</span><span class="p">(</span><span class="n">m</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.toolbar.search_geojson_gui" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -6794,7 +6807,7 @@
         <td><code>m</code></td>
         <td><code>leafmap.Map</code></td>
         <td><p>The leaflet Map object. Defaults to None.</p></td>
-        <td><code>None</code></td>
+        <td><em>required</em></td>
       </tr>
   </tbody>
 </table>
@@ -6815,7 +6828,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/toolbar.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">search_geojson_gui</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">search_geojson_gui</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates a tool GUI template using ipywidgets.</span>
 
 <span class="sd">    Args:</span>
@@ -7584,7 +7597,12 @@
         <details class="quote">
           <summary>Source code in <code>leafmap/toolbar.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">split_basemaps</span><span class="p">(</span>
-    <span class="n">m</span><span class="p">,</span> <span class="n">layers_dict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">left_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;120px&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="n">m</span><span class="p">,</span>
+    <span class="n">layers_dict</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">left_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">right_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="s2">&quot;120px&quot;</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a split-panel map for visualizing two maps.</span>
 
@@ -7713,7 +7731,7 @@
 
 
 <h2 id="leafmap.toolbar.stac_custom_gui" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">stac_custom_gui</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">button_width</span><span class="o">=</span><span class="s1">&#39;85px&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">stac_custom_gui</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">button_width</span><span class="o">=</span><span class="s1">&#39;85px&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.toolbar.stac_custom_gui" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -7737,7 +7755,13 @@
         <td><code>m</code></td>
         <td><code>leafmap.Map</code></td>
         <td><p>The leaflet Map object. Defaults to None.</p></td>
-        <td><code>None</code></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>button_width</code></td>
+        <td><code>str</code></td>
+        <td><p>The button width. Defaults to "85px".</p></td>
+        <td><code>&#39;85px&#39;</code></td>
       </tr>
       <tr>
         <td><code>**kwargs</code></td>
@@ -7764,11 +7788,12 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/toolbar.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_custom_gui</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">button_width</span><span class="o">=</span><span class="s2">&quot;85px&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_custom_gui</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">button_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;85px&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates a tool GUI template using ipywidgets.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        m (leafmap.Map, optional): The leaflet Map object. Defaults to None.</span>
+<span class="sd">        button_width (str, optional): The button width. Defaults to &quot;85px&quot;.</span>
 <span class="sd">        **kwargs: Additional keyword arguments that will be passed to the pystac Client.open() function.</span>
 
 <span class="sd">    Returns:</span>
@@ -8481,7 +8506,7 @@
 
 
 <h2 id="leafmap.toolbar.stac_gui" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">stac_gui</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;topright&#39;</span><span class="p">,</span> <span class="n">opened</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">stac_gui</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;topright&#39;</span><span class="p">,</span> <span class="n">opened</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.toolbar.stac_gui" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -8505,7 +8530,7 @@
         <td><code>m</code></td>
         <td><code>leafmap.Map</code></td>
         <td><p>The leaflet Map object. Defaults to None.</p></td>
-        <td><code>None</code></td>
+        <td><em>required</em></td>
       </tr>
   </tbody>
 </table>
@@ -8526,7 +8551,12 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/toolbar.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_gui</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">&quot;topright&quot;</span><span class="p">,</span> <span class="n">opened</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_gui</span><span class="p">(</span>
+    <span class="n">m</span><span class="p">,</span>
+    <span class="n">position</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;topright&quot;</span><span class="p">,</span>
+    <span class="n">opened</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates a tool GUI template using ipywidgets.</span>
 
 <span class="sd">    Args:</span>
@@ -9291,11 +9321,11 @@
           <summary>Source code in <code>leafmap/toolbar.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">time_slider</span><span class="p">(</span>
     <span class="n">m</span><span class="p">,</span>
-    <span class="n">layers_dict</span><span class="o">=</span><span class="p">{},</span>
-    <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">time_interval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">position</span><span class="o">=</span><span class="s2">&quot;bottomright&quot;</span><span class="p">,</span>
-    <span class="n">slider_length</span><span class="o">=</span><span class="s2">&quot;150px&quot;</span><span class="p">,</span>
+    <span class="n">layers_dict</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
+    <span class="n">labels</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">time_interval</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">position</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;bottomright&quot;</span><span class="p">,</span>
+    <span class="n">slider_length</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;150px&quot;</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a time slider to the map.</span>
 
@@ -9417,7 +9447,7 @@
 
 
 <h2 id="leafmap.toolbar.tool_header_template" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">tool_header_template</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">opened</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">tool_header_template</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">opened</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.toolbar.tool_header_template" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -9441,7 +9471,7 @@
         <td><code>m</code></td>
         <td><code>geemap.Map</code></td>
         <td><p>The geemap.Map instance. Defaults to None.</p></td>
-        <td><code>None</code></td>
+        <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>opened</code></td>
@@ -9453,7 +9483,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/toolbar.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">tool_header_template</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">opened</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">tool_header_template</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">opened</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a toolbar widget.</span>
 
 <span class="sd">    Args:</span>
@@ -9564,7 +9594,7 @@
 
 
 <h2 id="leafmap.toolbar.tool_template" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">tool_template</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">opened</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">tool_template</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">opened</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.toolbar.tool_template" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -9588,7 +9618,7 @@
         <td><code>m</code></td>
         <td><code>leafmap.Map</code></td>
         <td><p>The leaflet Map object. Defaults to None.</p></td>
-        <td><code>None</code></td>
+        <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>opened</code></td>
@@ -9615,7 +9645,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/toolbar.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">tool_template</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">opened</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">tool_template</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">opened</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates a tool GUI template using ipywidgets. Icons can be found at https://fontawesome.com/v4/icons</span>
 
 <span class="sd">    Args:</span>

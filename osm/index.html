@@ -21,7 +21,7 @@
         <link rel="next" href="../pc/">
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
@@ -2392,7 +2392,7 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_gdf_from_address</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_gdf_from_address</span><span class="p">(</span><span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">dist</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create GeoDataFrame of OSM entities within some distance N, S, E, W of address.</span>
 
 <span class="sd">    Args:</span>
@@ -2490,7 +2490,7 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_gdf_from_bbox</span><span class="p">(</span><span class="n">north</span><span class="p">,</span> <span class="n">south</span><span class="p">,</span> <span class="n">east</span><span class="p">,</span> <span class="n">west</span><span class="p">,</span> <span class="n">tags</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_gdf_from_bbox</span><span class="p">(</span><span class="n">north</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">south</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">east</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">west</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a GeoDataFrame of OSM entities within a N, S, E, W bounding box.</span>
 
 <span class="sd">    Args:</span>
@@ -2585,10 +2585,10 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_gdf_from_geocode</span><span class="p">(</span>
-    <span class="n">query</span><span class="p">,</span>
-    <span class="n">which_result</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">by_osmid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">buffer_dist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">query</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">],</span>
+    <span class="n">which_result</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">by_osmid</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">buffer_dist</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Retrieves place(s) by name or ID from the Nominatim API as a GeoDataFrame.</span>
 
@@ -2684,7 +2684,12 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_gdf_from_place</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">which_result</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">buffer_dist</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_gdf_from_place</span><span class="p">(</span>
+    <span class="n">query</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">],</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">which_result</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">buffer_dist</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create GeoDataFrame of OSM entities within boundaries of geocodable place(s).</span>
 
 <span class="sd">    Args:</span>
@@ -2773,7 +2778,9 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_gdf_from_point</span><span class="p">(</span><span class="n">center_point</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_gdf_from_point</span><span class="p">(</span>
+    <span class="n">center_point</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">dist</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create GeoDataFrame of OSM entities within some distance N, S, E, W of a point.</span>
 
 <span class="sd">    Args:</span>
@@ -2853,7 +2860,7 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_gdf_from_polygon</span><span class="p">(</span><span class="n">polygon</span><span class="p">,</span> <span class="n">tags</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_gdf_from_polygon</span><span class="p">(</span><span class="n">polygon</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create GeoDataFrame of OSM entities within boundaries of a (multi)polygon.</span>
 
 <span class="sd">    Args:</span>
@@ -2938,7 +2945,7 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_gdf_from_xml</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">polygon</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_gdf_from_xml</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">polygon</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a GeoDataFrame of OSM entities in an OSM-formatted XML file.</span>
 
 <span class="sd">    Args:</span>
@@ -3030,7 +3037,9 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_geojson_from_address</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_geojson_from_address</span><span class="p">(</span>
+    <span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">dist</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Download OSM entities within some distance N, S, E, W of address as a GeoJSON.</span>
 
 <span class="sd">    Args:</span>
@@ -3135,7 +3144,14 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_geojson_from_bbox</span><span class="p">(</span><span class="n">north</span><span class="p">,</span> <span class="n">south</span><span class="p">,</span> <span class="n">east</span><span class="p">,</span> <span class="n">west</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_geojson_from_bbox</span><span class="p">(</span>
+    <span class="n">north</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">south</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">east</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">west</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">filepath</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Download OSM entities within a N, S, E, W bounding box as a GeoJSON.</span>
 
 <span class="sd">    Args:</span>
@@ -3167,7 +3183,7 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 
 
 <h2 id="leafmap.osm.osm_geojson_from_geocode" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">osm_geojson_from_geocode</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">which_result</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">by_osmid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">buffer_dist</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">osm_geojson_from_geocode</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">filepath</span><span class="p">,</span> <span class="n">which_result</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">by_osmid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">buffer_dist</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.osm.osm_geojson_from_geocode" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -3197,7 +3213,7 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
         <td><code>filepath</code></td>
         <td><code>str</code></td>
         <td><p>File path to the output GeoJSON.</p></td>
-        <td><code>None</code></td>
+        <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>which_result</code></td>
@@ -3237,11 +3253,11 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_geojson_from_geocode</span><span class="p">(</span>
-    <span class="n">query</span><span class="p">,</span>
-    <span class="n">filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">which_result</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">by_osmid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">buffer_dist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">query</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">],</span>
+    <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">which_result</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">by_osmid</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">buffer_dist</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Download place(s) by name or ID from the Nominatim API as a GeoJSON.</span>
 
@@ -3273,7 +3289,7 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 
 
 <h2 id="leafmap.osm.osm_geojson_from_place" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">osm_geojson_from_place</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">which_result</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">buffer_dist</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">osm_geojson_from_place</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">filepath</span><span class="p">,</span> <span class="n">which_result</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">buffer_dist</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.osm.osm_geojson_from_place" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -3309,7 +3325,7 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
         <td><code>filepath</code></td>
         <td><code>str</code></td>
         <td><p>File path to the output shapefile.</p></td>
-        <td><code>None</code></td>
+        <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>which_result</code></td>
@@ -3343,8 +3359,12 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_geojson_from_place</span><span class="p">(</span>
-    <span class="n">query</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">which_result</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">buffer_dist</span><span class="o">=</span><span class="kc">None</span>
-<span class="p">):</span>
+    <span class="n">query</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">],</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">which_result</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">buffer_dist</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Download OSM entities within boundaries of geocodable place(s) as a GeoJSON.</span>
 
 <span class="sd">    Args:</span>
@@ -3376,7 +3396,7 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 
 
 <h2 id="leafmap.osm.osm_geojson_from_point" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">osm_geojson_from_point</span><span class="p">(</span><span class="n">center_point</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">osm_geojson_from_point</span><span class="p">(</span><span class="n">center_point</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">filepath</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.osm.osm_geojson_from_point" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -3412,7 +3432,7 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
         <td><code>filepath</code></td>
         <td><code>str</code></td>
         <td><p>File path to the output shapefile.</p></td>
-        <td><code>None</code></td>
+        <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>dist</code></td>
@@ -3439,7 +3459,12 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_geojson_from_point</span><span class="p">(</span><span class="n">center_point</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_geojson_from_point</span><span class="p">(</span>
+    <span class="n">center_point</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">dist</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Download OSM entities within some distance N, S, E, W of point as a GeoJSON.</span>
 
 <span class="sd">    Args:</span>
@@ -3526,7 +3551,9 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_geojson_from_polygon</span><span class="p">(</span><span class="n">polygon</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_geojson_from_polygon</span><span class="p">(</span>
+    <span class="n">polygon</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Download OSM entities within boundaries of a (multi)polygon as a GeoJSON.</span>
 
 <span class="sd">    Args:</span>
@@ -3603,7 +3630,9 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_shp_from_address</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">filepath</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_shp_from_address</span><span class="p">(</span>
+    <span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dist</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Download OSM entities within some distance N, S, E, W of address as a shapefile.</span>
 
 <span class="sd">    Args:</span>
@@ -3688,7 +3717,9 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_shp_from_bbox</span><span class="p">(</span><span class="n">north</span><span class="p">,</span> <span class="n">south</span><span class="p">,</span> <span class="n">east</span><span class="p">,</span> <span class="n">west</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">filepath</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_shp_from_bbox</span><span class="p">(</span>
+    <span class="n">north</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">south</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">east</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">west</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Download OSM entities within a N, S, E, W bounding box as a shapefile.</span>
 
 <span class="sd">    Args:</span>
@@ -3769,11 +3800,11 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_shp_from_geocode</span><span class="p">(</span>
-    <span class="n">query</span><span class="p">,</span>
-    <span class="n">filepath</span><span class="p">,</span>
-    <span class="n">which_result</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">by_osmid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">buffer_dist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">query</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">],</span>
+    <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">which_result</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">by_osmid</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">buffer_dist</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Download place(s) by name or ID from the Nominatim API as a shapefile.</span>
 
@@ -3853,7 +3884,13 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_shp_from_place</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">filepath</span><span class="p">,</span> <span class="n">which_result</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">buffer_dist</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_shp_from_place</span><span class="p">(</span>
+    <span class="n">query</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">],</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">which_result</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">buffer_dist</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Download OSM entities within boundaries of geocodable place(s) as a shapefile.</span>
 
 <span class="sd">    Args:</span>
@@ -3926,7 +3963,12 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_shp_from_point</span><span class="p">(</span><span class="n">center_point</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">filepath</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_shp_from_point</span><span class="p">(</span>
+    <span class="n">center_point</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">dist</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Download OSM entities within some distance N, S, E, W of point as a shapefile.</span>
 
 <span class="sd">    Args:</span>
@@ -3992,7 +4034,7 @@ https://wiki.openstreetmap.org/wiki/Map_features </p>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/osm.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_shp_from_polygon</span><span class="p">(</span><span class="n">polygon</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">filepath</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">osm_shp_from_polygon</span><span class="p">(</span><span class="n">polygon</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Download OSM entities within boundaries of a (multi)polygon as a shapefile.</span>
 
 <span class="sd">    Args:</span>

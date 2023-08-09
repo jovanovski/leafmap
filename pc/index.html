@@ -21,7 +21,7 @@
         <link rel="next" href="../plotlymap/">
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
@@ -2251,7 +2251,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/pc.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_first_item</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">return_id</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_first_item</span><span class="p">(</span><span class="n">collection</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">return_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the first item in a collection.</span>
 
 <span class="sd">    Args:</span>
@@ -2307,7 +2307,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/pc.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_pc_collection_list</span><span class="p">():</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_pc_collection_list</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a list of collections in the Microsoft Planetary Computer catalog.</span>
 
 <span class="sd">    Returns:</span>
@@ -2365,7 +2365,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/pc.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_pc_collections</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_pc_collections</span><span class="p">(</span><span class="n">verbose</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a list of all collections in the Microsoft Planetary Computer catalog.</span>
 
 <span class="sd">    Args:</span>
@@ -2444,7 +2444,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/pc.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_pc_inventory</span><span class="p">(</span><span class="n">refresh</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_pc_inventory</span><span class="p">(</span><span class="n">refresh</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the inventory of the Microsoft Planetary Computer catalog.</span>
 
 <span class="sd">    Args:</span>

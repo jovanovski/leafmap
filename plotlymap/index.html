@@ -21,7 +21,7 @@
         <link rel="next" href="../deck/">
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
@@ -2612,9 +2612,9 @@ Canvas        </code>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="nb">map</span><span class="p">,</span>
-        <span class="n">map_min_width</span><span class="o">=</span><span class="s2">&quot;90%&quot;</span><span class="p">,</span>
-        <span class="n">map_max_width</span><span class="o">=</span><span class="s2">&quot;98%&quot;</span><span class="p">,</span>
-        <span class="n">map_refresh</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">map_min_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;90%&quot;</span><span class="p">,</span>
+        <span class="n">map_max_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;98%&quot;</span><span class="p">,</span>
+        <span class="n">map_refresh</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the Canvas.</span>
@@ -2727,9 +2727,9 @@ Canvas        </code>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="nb">map</span><span class="p">,</span>
-    <span class="n">map_min_width</span><span class="o">=</span><span class="s2">&quot;90%&quot;</span><span class="p">,</span>
-    <span class="n">map_max_width</span><span class="o">=</span><span class="s2">&quot;98%&quot;</span><span class="p">,</span>
-    <span class="n">map_refresh</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">map_min_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;90%&quot;</span><span class="p">,</span>
+    <span class="n">map_max_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;98%&quot;</span><span class="p">,</span>
+    <span class="n">map_refresh</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Initialize the Canvas.</span>
@@ -2832,13 +2832,18 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The Map class inherits the Plotly FigureWidget class. More info at https://plotly.com/python/figurewidget.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="s2">&quot;open-street-map&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">center</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="n">zoom</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">basemap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;open-street-map&quot;</span><span class="p">,</span>
+        <span class="n">height</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes a map. More info at https://plotly.com/python/mapbox-layers/</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            center (tuple, optional): Center of the map. Defaults to (20, 0).</span>
-<span class="sd">            zoom (int, optional): Zoom level of the map. Defaults to 1.</span>
+<span class="sd">            zoom (float, optional): Zoom level of the map. Defaults to 1.</span>
 <span class="sd">            basemap (str, optional): Can be one of string from &quot;open-street-map&quot;, &quot;carto-positron&quot;, &quot;carto-darkmatter&quot;, &quot;stamen-terrain&quot;, &quot;stamen-toner&quot; or &quot;stamen-watercolor&quot; . Defaults to &#39;open-street-map&#39;.</span>
 <span class="sd">            height (int, optional): Height of the map. Defaults to 600.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -2858,10 +2863,10 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
 
     <span class="k">def</span> <span class="nf">show</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">toolbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">map_min_width</span><span class="o">=</span><span class="s2">&quot;91%&quot;</span><span class="p">,</span>
-        <span class="n">map_max_width</span><span class="o">=</span><span class="s2">&quot;98%&quot;</span><span class="p">,</span>
-        <span class="n">refresh</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">toolbar</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">map_min_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;91%&quot;</span><span class="p">,</span>
+        <span class="n">map_max_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;98%&quot;</span><span class="p">,</span>
+        <span class="n">refresh</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Shows the map.</span>
@@ -2897,7 +2902,7 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
         <span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">toolbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">add_controls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">controls</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">add_controls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">controls</span><span class="p">:</span> <span class="n">List</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds controls to the map.</span>
 
 <span class="sd">        Args:</span>
@@ -2912,7 +2917,7 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
 
         <span class="bp">self</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">modebar_add</span><span class="o">=</span><span class="n">controls</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">remove_controls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">controls</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">remove_controls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">controls</span><span class="p">:</span> <span class="n">List</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Removes controls to the map.</span>
 
 <span class="sd">        Args:</span>
@@ -2927,7 +2932,7 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
 
         <span class="bp">self</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">modebar_remove</span><span class="o">=</span><span class="n">controls</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">set_center</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">set_center</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lat</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lon</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">zoom</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the center of the map.</span>
 
 <span class="sd">        Args:</span>
@@ -2942,7 +2947,7 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
             <span class="p">)</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">add_basemap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="s2">&quot;ROADMAP&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">add_basemap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">basemap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ROADMAP&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a basemap to the map.</span>
 
 <span class="sd">        Args:</span>
@@ -2958,7 +2963,7 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
         <span class="n">layers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">mapbox</span><span class="o">.</span><span class="n">layers</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">basemaps</span><span class="p">[</span><span class="n">basemap</span><span class="p">]]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">mapbox_layers</span><span class="o">=</span><span class="n">layers</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">remove_basemap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">remove_basemap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Removes a basemap from the map.</span>
 
 <span class="sd">        Args:</span>
@@ -2968,7 +2973,7 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
         <span class="n">layers</span> <span class="o">=</span> <span class="p">[</span><span class="n">layer</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">layers</span> <span class="k">if</span> <span class="n">layer</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">name</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">mapbox</span><span class="o">.</span><span class="n">layers</span> <span class="o">=</span> <span class="n">layers</span>
 
-    <span class="k">def</span> <span class="nf">add_mapbox_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="p">,</span> <span class="n">access_token</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">add_mapbox_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">],</span> <span class="n">access_token</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a mapbox layer to the map.</span>
 
 <span class="sd">        Args:</span>
@@ -2983,7 +2988,7 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
             <span class="n">mapbox_style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">mapbox_layers</span><span class="o">=</span><span class="p">[],</span> <span class="n">mapbox_accesstoken</span><span class="o">=</span><span class="n">access_token</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">add_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">add_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a layer to the map.</span>
 
 <span class="sd">        Args:</span>
@@ -2994,7 +2999,7 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
             <span class="n">layer</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">remove_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">remove_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Removes a layer from the map.</span>
 
 <span class="sd">        Args:</span>
@@ -3007,7 +3012,7 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
                 <span class="n">layer</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">mapbox</span><span class="o">.</span><span class="n">layers</span> <span class="k">if</span> <span class="n">layer</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">name</span>
             <span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">clear_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clear_basemap</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">clear_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clear_basemap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Clears all layers from the map.</span>
 
 <span class="sd">        Args:</span>
@@ -3019,7 +3024,7 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">get_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a dictionary of all layers in the map.</span>
 <span class="sd">        Returns:</span>
 <span class="sd">            dict: A dictionary of all layers in the map.</span>
@@ -3036,7 +3041,7 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
 
         <span class="k">return</span> <span class="n">layers</span>
 
-    <span class="k">def</span> <span class="nf">get_tile_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_tile_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a dictionary of tile layers in the map.</span>
 
 <span class="sd">        Returns:</span>
@@ -3051,7 +3056,7 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
 
         <span class="k">return</span> <span class="n">layers</span>
 
-    <span class="k">def</span> <span class="nf">get_data_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_data_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a dictionary of data layers in the map.</span>
 
 <span class="sd">        Returns:</span>
@@ -3066,7 +3071,7 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
 
         <span class="k">return</span> <span class="n">layers</span>
 
-    <span class="k">def</span> <span class="nf">find_layer_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">find_layer_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Finds the index of a layer.</span>
 
 <span class="sd">        Args:</span>
@@ -3085,7 +3090,7 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
 
         <span class="k">return</span> <span class="kc">None</span>
 
-    <span class="k">def</span> <span class="nf">set_layer_visibility</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">set_layer_visibility</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">show</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the visibility of a layer.</span>
 
 <span class="sd">        Args:</span>
@@ -3102,7 +3107,7 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Layer </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> not found.&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">set_layer_opacity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">set_layer_opacity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the visibility of a layer.</span>
 
 <span class="sd">        Args:</span>
@@ -3125,10 +3130,10 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
 
     <span class="k">def</span> <span class="nf">add_tile_layer</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">url</span><span class="p">,</span>
-        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;TileLayer&quot;</span><span class="p">,</span>
-        <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;TileLayer&quot;</span><span class="p">,</span>
+        <span class="n">attribution</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a TileLayer to the map.</span>
@@ -3153,12 +3158,12 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
 
     <span class="k">def</span> <span class="nf">add_cog_layer</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">url</span><span class="p">,</span>
-        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Untitled&quot;</span><span class="p">,</span>
-        <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Untitled&quot;</span><span class="p">,</span>
+        <span class="n">attribution</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">bands</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a COG TileLayer to the map.</span>
@@ -3182,15 +3187,15 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
 
     <span class="k">def</span> <span class="nf">add_stac_layer</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">assets</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;STAC Layer&quot;</span><span class="p">,</span>
-        <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">collection</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">items</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">assets</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">bands</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;STAC Layer&quot;</span><span class="p">,</span>
+        <span class="n">attribution</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a STAC TileLayer to the map.</span>
@@ -3215,11 +3220,11 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
 
     <span class="k">def</span> <span class="nf">add_mosaic_layer</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">url</span><span class="p">,</span>
-        <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Mosaic Layer&quot;</span><span class="p">,</span>
-        <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Mosaic Layer&quot;</span><span class="p">,</span>
+        <span class="n">attribution</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a STAC TileLayer to the map.</span>
@@ -3238,13 +3243,13 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
 
     <span class="k">def</span> <span class="nf">add_planet_by_month</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">year</span><span class="o">=</span><span class="mi">2016</span><span class="p">,</span>
-        <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-        <span class="n">api_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">token_name</span><span class="o">=</span><span class="s2">&quot;PLANET_API_KEY&quot;</span><span class="p">,</span>
-        <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">year</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2016</span><span class="p">,</span>
+        <span class="n">month</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">api_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">token_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;PLANET_API_KEY&quot;</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">attribution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds Planet global mosaic by month to the map. To get a Planet API key, see https://developers.planet.com/quickstart/apis/</span>
 
@@ -3266,13 +3271,13 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
 
     <span class="k">def</span> <span class="nf">add_planet_by_quarter</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">year</span><span class="o">=</span><span class="mi">2016</span><span class="p">,</span>
-        <span class="n">quarter</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-        <span class="n">api_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">token_name</span><span class="o">=</span><span class="s2">&quot;PLANET_API_KEY&quot;</span><span class="p">,</span>
-        <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">year</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2016</span><span class="p">,</span>
+        <span class="n">quarter</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">api_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">token_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;PLANET_API_KEY&quot;</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">attribution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds Planet global mosaic by month to the map. To get a Planet API key, see https://developers.planet.com/quickstart/apis/</span>
 
@@ -3292,7 +3297,15 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
             <span class="n">tile_url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="n">attribution</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="n">opacity</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="nb">format</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">height</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">scale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert a map to a static image and write it to a file or writeable object</span>
 
 <span class="sd">        Args:</span>
@@ -3307,7 +3320,12 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">add_choropleth_map</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">colorscale</span><span class="o">=</span><span class="s2">&quot;Viridis&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">z</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">colorscale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Viridis&quot;</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a choropleth map to the map.</span>
 
@@ -3344,13 +3362,13 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
 
     <span class="k">def</span> <span class="nf">add_heatmap</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">data</span><span class="p">,</span>
-        <span class="n">latitude</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
-        <span class="n">longitude</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span>
-        <span class="n">z</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span>
-        <span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-        <span class="n">colorscale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Heat map&quot;</span><span class="p">,</span>
+        <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">],</span>
+        <span class="n">latitude</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
+        <span class="n">longitude</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;longitude&quot;</span><span class="p">,</span>
+        <span class="n">z</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+        <span class="n">radius</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="n">colorscale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Heat map&quot;</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a heat map to the map. Reference: https://plotly.com/python/mapbox-density-heatmaps</span>
@@ -3404,9 +3422,9 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
     <span class="k">def</span> <span class="nf">add_gdf_demo</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">gdf</span><span class="p">,</span>
-        <span class="n">label_col</span><span class="p">,</span>
-        <span class="n">color_col</span><span class="p">,</span>
-        <span class="n">color_continuous_scale</span><span class="o">=</span><span class="s2">&quot;Viridis&quot;</span><span class="p">,</span>
+        <span class="n">label_col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">color_col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">color_continuous_scale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Viridis&quot;</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="n">check_package</span><span class="p">(</span><span class="s2">&quot;geopandas&quot;</span><span class="p">,</span> <span class="s2">&quot;https://geopandas.org&quot;</span><span class="p">)</span>
@@ -3441,12 +3459,12 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
     <span class="k">def</span> <span class="nf">add_gdf</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">gdf</span><span class="p">,</span>
-        <span class="n">label_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">color_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">label_col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">color_col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="n">zoom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">color_continuous_scale</span><span class="o">=</span><span class="s2">&quot;Viridis&quot;</span><span class="p">,</span>
+        <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">zoom</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">color_continuous_scale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Viridis&quot;</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a GeoDataFrame to the map.</span>
@@ -3497,7 +3515,13 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
         <span class="bp">self</span><span class="o">.</span><span class="n">add_traces</span><span class="p">(</span><span class="n">fig</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">set_center</span><span class="p">(</span><span class="n">center_lat</span><span class="p">,</span> <span class="n">center_lon</span><span class="p">,</span> <span class="n">zoom</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">add_geojson_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">geojson_in</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">add_geojson_layer</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">geojson_in</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">],</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">color</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+        <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Prepare proper and give style for different type of Geometry</span>
 
 <span class="sd">        Args:</span>
@@ -3535,7 +3559,14 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
 
         <span class="bp">self</span><span class="o">.</span><span class="n">add_geojson</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">opacity</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">add_geojson</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">opacity</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">add_geojson</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">color</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+    <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Add layers to the Map</span>
 
 <span class="sd">        Args:</span>
@@ -3610,7 +3641,7 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
       </tr>
       <tr>
         <td><code>zoom</code></td>
-        <td><code>int</code></td>
+        <td><code>float</code></td>
         <td><p>Zoom level of the map. Defaults to 1.</p></td>
         <td><code>1</code></td>
       </tr>
@@ -3631,13 +3662,18 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-    <span class="bp">self</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="s2">&quot;open-street-map&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">center</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="n">zoom</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">basemap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;open-street-map&quot;</span><span class="p">,</span>
+    <span class="n">height</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Initializes a map. More info at https://plotly.com/python/mapbox-layers/</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        center (tuple, optional): Center of the map. Defaults to (20, 0).</span>
-<span class="sd">        zoom (int, optional): Zoom level of the map. Defaults to 1.</span>
+<span class="sd">        zoom (float, optional): Zoom level of the map. Defaults to 1.</span>
 <span class="sd">        basemap (str, optional): Can be one of string from &quot;open-street-map&quot;, &quot;carto-positron&quot;, &quot;carto-darkmatter&quot;, &quot;stamen-terrain&quot;, &quot;stamen-toner&quot; or &quot;stamen-watercolor&quot; . Defaults to &#39;open-street-map&#39;.</span>
 <span class="sd">        height (int, optional): Height of the map. Defaults to 600.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -3697,7 +3733,7 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_basemap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="s2">&quot;ROADMAP&quot;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_basemap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">basemap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ROADMAP&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a basemap to the map.</span>
 
 <span class="sd">    Args:</span>
@@ -3774,7 +3810,12 @@ Map            (<span title="plotly.graph_objs._figurewidget.FigureWidget">Figur
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_choropleth_map</span><span class="p">(</span>
-    <span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">colorscale</span><span class="o">=</span><span class="s2">&quot;Viridis&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">z</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">colorscale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Viridis&quot;</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a choropleth map to the map.</span>
 
@@ -3883,12 +3924,12 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_cog_layer</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">url</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Untitled&quot;</span><span class="p">,</span>
-    <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-    <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Untitled&quot;</span><span class="p">,</span>
+    <span class="n">attribution</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">bands</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a COG TileLayer to the map.</span>
@@ -3952,7 +3993,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_controls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">controls</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_controls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">controls</span><span class="p">:</span> <span class="n">List</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds controls to the map.</span>
 
 <span class="sd">    Args:</span>
@@ -4024,12 +4065,12 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_gdf</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">gdf</span><span class="p">,</span>
-    <span class="n">label_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">color_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">label_col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">color_col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-    <span class="n">zoom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">color_continuous_scale</span><span class="o">=</span><span class="s2">&quot;Viridis&quot;</span><span class="p">,</span>
+    <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">zoom</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">color_continuous_scale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Viridis&quot;</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a GeoDataFrame to the map.</span>
@@ -4141,7 +4182,14 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_geojson</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">opacity</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_geojson</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">color</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Add layers to the Map</span>
 
 <span class="sd">    Args:</span>
@@ -4226,7 +4274,13 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_geojson_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">geojson_in</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_geojson_layer</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">geojson_in</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">],</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">color</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+    <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Prepare proper and give style for different type of Geometry</span>
 
 <span class="sd">    Args:</span>
@@ -4344,13 +4398,13 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_heatmap</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">data</span><span class="p">,</span>
-    <span class="n">latitude</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
-    <span class="n">longitude</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span>
-    <span class="n">z</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span>
-    <span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="n">colorscale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Heat map&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">],</span>
+    <span class="n">latitude</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
+    <span class="n">longitude</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;longitude&quot;</span><span class="p">,</span>
+    <span class="n">z</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+    <span class="n">radius</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="n">colorscale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Heat map&quot;</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a heat map to the map. Reference: https://plotly.com/python/mapbox-density-heatmaps</span>
@@ -4472,7 +4526,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a layer to the map.</span>
 
 <span class="sd">    Args:</span>
@@ -4531,7 +4585,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_mapbox_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="p">,</span> <span class="n">access_token</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_mapbox_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">],</span> <span class="n">access_token</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a mapbox layer to the map.</span>
 
 <span class="sd">    Args:</span>
@@ -4614,11 +4668,11 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_mosaic_layer</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">url</span><span class="p">,</span>
-    <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Mosaic Layer&quot;</span><span class="p">,</span>
-    <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Mosaic Layer&quot;</span><span class="p">,</span>
+    <span class="n">attribution</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a STAC TileLayer to the map.</span>
@@ -4715,13 +4769,13 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_planet_by_month</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">year</span><span class="o">=</span><span class="mi">2016</span><span class="p">,</span>
-    <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">token_name</span><span class="o">=</span><span class="s2">&quot;PLANET_API_KEY&quot;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">year</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2016</span><span class="p">,</span>
+    <span class="n">month</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">token_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;PLANET_API_KEY&quot;</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">attribution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds Planet global mosaic by month to the map. To get a Planet API key, see https://developers.planet.com/quickstart/apis/</span>
 
@@ -4821,13 +4875,13 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_planet_by_quarter</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">year</span><span class="o">=</span><span class="mi">2016</span><span class="p">,</span>
-    <span class="n">quarter</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">token_name</span><span class="o">=</span><span class="s2">&quot;PLANET_API_KEY&quot;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">year</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2016</span><span class="p">,</span>
+    <span class="n">quarter</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">token_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;PLANET_API_KEY&quot;</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">attribution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds Planet global mosaic by month to the map. To get a Planet API key, see https://developers.planet.com/quickstart/apis/</span>
 
@@ -4891,7 +4945,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 
 
 <h3 id="leafmap.plotlymap.Map.add_stac_layer" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">add_stac_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">assets</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;STAC Layer&#39;</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">add_stac_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">assets</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;STAC Layer&#39;</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.plotlymap.Map.add_stac_layer" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -4927,7 +4981,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
         <td><code>items</code></td>
         <td><code>str</code></td>
         <td><p>The Microsoft Planetary Computer STAC item ID, e.g., LC08_L2SP_047027_20201204_02_T1.</p></td>
-        <td><em>required</em></td>
+        <td><code>None</code></td>
       </tr>
       <tr>
         <td><code>assets</code></td>
@@ -4971,15 +5025,15 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_stac_layer</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">assets</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;STAC Layer&quot;</span><span class="p">,</span>
-    <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">collection</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">items</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">assets</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">bands</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;STAC Layer&quot;</span><span class="p">,</span>
+    <span class="n">attribution</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a STAC TileLayer to the map.</span>
@@ -5064,10 +5118,10 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_tile_layer</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">url</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;TileLayer&quot;</span><span class="p">,</span>
-    <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;TileLayer&quot;</span><span class="p">,</span>
+    <span class="n">attribution</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a TileLayer to the map.</span>
@@ -5166,7 +5220,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">clear_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clear_basemap</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">clear_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clear_basemap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Clears all layers from the map.</span>
 
 <span class="sd">    Args:</span>
@@ -5235,7 +5289,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">find_layer_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">find_layer_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Finds the index of a layer.</span>
 
 <span class="sd">    Args:</span>
@@ -5292,7 +5346,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_data_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_data_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a dictionary of data layers in the map.</span>
 
 <span class="sd">    Returns:</span>
@@ -5345,7 +5399,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a dictionary of all layers in the map.</span>
 <span class="sd">    Returns:</span>
 <span class="sd">        dict: A dictionary of all layers in the map.</span>
@@ -5400,7 +5454,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_tile_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_tile_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a dictionary of tile layers in the map.</span>
 
 <span class="sd">    Returns:</span>
@@ -5457,7 +5511,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">remove_basemap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">remove_basemap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Removes a basemap from the map.</span>
 
 <span class="sd">    Args:</span>
@@ -5509,7 +5563,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">remove_controls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">controls</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">remove_controls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">controls</span><span class="p">:</span> <span class="n">List</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Removes controls to the map.</span>
 
 <span class="sd">    Args:</span>
@@ -5566,7 +5620,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">remove_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">remove_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Removes a layer from the map.</span>
 
 <span class="sd">    Args:</span>
@@ -5645,7 +5699,15 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">save</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="nb">format</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">height</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">scale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert a map to a static image and write it to a file or writeable object</span>
 
 <span class="sd">    Args:</span>
@@ -5713,7 +5775,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">set_center</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">set_center</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lat</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lon</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">zoom</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Sets the center of the map.</span>
 
 <span class="sd">    Args:</span>
@@ -5776,7 +5838,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">set_layer_opacity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">set_layer_opacity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">opacity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Sets the visibility of a layer.</span>
 
 <span class="sd">    Args:</span>
@@ -5845,7 +5907,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">set_layer_visibility</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">set_layer_visibility</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">show</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Sets the visibility of a layer.</span>
 
 <span class="sd">    Args:</span>
@@ -5939,10 +6001,10 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
           <summary>Source code in <code>leafmap/plotlymap.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">show</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">toolbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">map_min_width</span><span class="o">=</span><span class="s2">&quot;91%&quot;</span><span class="p">,</span>
-    <span class="n">map_max_width</span><span class="o">=</span><span class="s2">&quot;98%&quot;</span><span class="p">,</span>
-    <span class="n">refresh</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">toolbar</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">map_min_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;91%&quot;</span><span class="p">,</span>
+    <span class="n">map_max_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;98%&quot;</span><span class="p">,</span>
+    <span class="n">refresh</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Shows the map.</span>

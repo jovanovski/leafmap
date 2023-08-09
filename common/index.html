@@ -21,7 +21,7 @@
         <link rel="next" href="../examples/">
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
@@ -6014,7 +6014,7 @@ WhiteboxTools            (<span title="whitebox.whitebox_tools.WhiteboxTools">Wh
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/common.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">__install_from_github</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">__install_from_github</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Install a package from a GitHub repository.</span>
 
 <span class="sd">    Args:</span>
@@ -8100,7 +8100,7 @@ WhiteboxTools            (<span title="whitebox.whitebox_tools.WhiteboxTools">Wh
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/common.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">check_color</span><span class="p">(</span><span class="n">in_color</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">check_color</span><span class="p">(</span><span class="n">in_color</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks the input color and returns the corresponding hex color code.</span>
 
 <span class="sd">    Args:</span>
@@ -10209,7 +10209,7 @@ style = {
   <tbody>
       <tr>
         <td><code>images</code></td>
-        <td><code>Union[list, str]</code></td>
+        <td><code>list | str</code></td>
         <td><p>The list of images or input directory to create the gif from.
 For example, '/path/to/images/*.tif' or ['/path/to/image1.tif', '/path/to/image2.tif', ...]</p></td>
         <td><em>required</em></td>
@@ -10228,19 +10228,19 @@ For example, '/path/to/images/*.tif' or ['/path/to/image1.tif', '/path/to/image2
       </tr>
       <tr>
         <td><code>bands</code></td>
-        <td><code>Optional[list]</code></td>
+        <td><code>list</code></td>
         <td><p>The bands to use for the gif. For example, [0, 1, 2] for RGB, and [0] for grayscale. Defaults to None.</p></td>
         <td><code>None</code></td>
       </tr>
       <tr>
         <td><code>size</code></td>
-        <td><code>Optional[tuple]</code></td>
+        <td><code>tuple</code></td>
         <td><p>The size of the gif. For example, (500, 500). Defaults to None, using the original size.</p></td>
         <td><code>None</code></td>
       </tr>
       <tr>
         <td><code>bbox</code></td>
-        <td><code>Optional[list]</code></td>
+        <td><code>list</code></td>
         <td><p>The bounding box of the gif. For example, [xmin, ymin, xmax, ymax]. Defaults to None, using the original bounding box.</p></td>
         <td><code>None</code></td>
       </tr>
@@ -10282,14 +10282,14 @@ For example, '/path/to/images/*.tif' or ['/path/to/image1.tif', '/path/to/image2
       </tr>
       <tr>
         <td><code>text_xy</code></td>
-        <td><code>Optional[tuple]</code></td>
+        <td><code>tuple</code></td>
         <td><p>The x, y coordinates of the text. For example, ('10%', '10%').
 Defaults to None, using the bottom left corner.</p></td>
         <td><code>None</code></td>
       </tr>
       <tr>
         <td><code>text_sequence</code></td>
-        <td><code>Optional[list]</code></td>
+        <td><code>list</code></td>
         <td><p>The sequence of text to add to the gif. For example, ['year 1', 'year 2', ...].</p></td>
         <td><code>None</code></td>
       </tr>
@@ -10340,20 +10340,20 @@ Defaults to None, using the bottom left corner.</p></td>
         <details class="quote">
           <summary>Source code in <code>leafmap/common.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">create_timelapse</span><span class="p">(</span>
-    <span class="n">images</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+    <span class="n">images</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
     <span class="n">out_gif</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">ext</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;.tif&quot;</span><span class="p">,</span>
-    <span class="n">bands</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">bbox</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">bands</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">bbox</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">fps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
     <span class="n">loop</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
     <span class="n">add_progress_bar</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">progress_bar_color</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span>
     <span class="n">progress_bar_height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
     <span class="n">add_text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="n">text_xy</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">text_sequence</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">text_xy</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">text_sequence</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">font_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;arial.ttf&quot;</span><span class="p">,</span>
     <span class="n">font_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
     <span class="n">font_color</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span>
@@ -10366,22 +10366,22 @@ Defaults to None, using the bottom left corner.</p></td>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a timelapse gif from a list of images.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        images (Union[list, str]): The list of images or input directory to create the gif from.</span>
+<span class="sd">        images (list | str): The list of images or input directory to create the gif from.</span>
 <span class="sd">            For example, &#39;/path/to/images/*.tif&#39; or [&#39;/path/to/image1.tif&#39;, &#39;/path/to/image2.tif&#39;, ...]</span>
 <span class="sd">        out_gif (str): File path to the output gif.</span>
 <span class="sd">        ext (str, optional): The extension of the images. Defaults to &#39;.tif&#39;.</span>
-<span class="sd">        bands (Optional[list], optional): The bands to use for the gif. For example, [0, 1, 2] for RGB, and [0] for grayscale. Defaults to None.</span>
-<span class="sd">        size (Optional[tuple], optional): The size of the gif. For example, (500, 500). Defaults to None, using the original size.</span>
-<span class="sd">        bbox (Optional[list], optional): The bounding box of the gif. For example, [xmin, ymin, xmax, ymax]. Defaults to None, using the original bounding box.</span>
+<span class="sd">        bands (list, optional): The bands to use for the gif. For example, [0, 1, 2] for RGB, and [0] for grayscale. Defaults to None.</span>
+<span class="sd">        size (tuple, optional): The size of the gif. For example, (500, 500). Defaults to None, using the original size.</span>
+<span class="sd">        bbox (list, optional): The bounding box of the gif. For example, [xmin, ymin, xmax, ymax]. Defaults to None, using the original bounding box.</span>
 <span class="sd">        fps (int, optional): The frames per second of the gif. Defaults to 5.</span>
 <span class="sd">        loop (int, optional): The number of times to loop the gif. Defaults to 0, looping forever.</span>
 <span class="sd">        add_progress_bar (bool, optional): Whether to add a progress bar to the gif. Defaults to True.</span>
 <span class="sd">        progress_bar_color (str, optional): The color of the progress bar, can be color name or hex code. Defaults to &#39;blue&#39;.</span>
 <span class="sd">        progress_bar_height (int, optional): The height of the progress bar. Defaults to 5.</span>
 <span class="sd">        add_text (bool, optional): Whether to add text to the gif. Defaults to False.</span>
-<span class="sd">        text_xy (Optional[tuple], optional): The x, y coordinates of the text. For example, (&#39;10%&#39;, &#39;10%&#39;).</span>
+<span class="sd">        text_xy (tuple, optional): The x, y coordinates of the text. For example, (&#39;10%&#39;, &#39;10%&#39;).</span>
 <span class="sd">            Defaults to None, using the bottom left corner.</span>
-<span class="sd">        text_sequence (Optional[list], optional): The sequence of text to add to the gif. For example, [&#39;year 1&#39;, &#39;year 2&#39;, ...].</span>
+<span class="sd">        text_sequence (list, optional): The sequence of text to add to the gif. For example, [&#39;year 1&#39;, &#39;year 2&#39;, ...].</span>
 <span class="sd">        font_type (str, optional): The font type of the text, can be &#39;arial.ttf&#39; or &#39;alibaba.otf&#39;, or any system font. Defaults to &#39;arial.ttf&#39;.</span>
 <span class="sd">        font_size (int, optional): The font size of the text. Defaults to 20.</span>
 <span class="sd">        font_color (str, optional): The color of the text, can be color name or hex code. Defaults to &#39;black&#39;.</span>
@@ -12307,7 +12307,13 @@ in which case it must be a path to a CA bundle to use. Default is True.. Default
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/common.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">download_from_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">out_file_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out_dir</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">unzip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">download_from_url</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">out_file_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">out_dir</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span>
+    <span class="n">unzip</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Download a file from a URL (e.g., https://github.com/opengeos/whitebox-python/raw/master/examples/testdata.zip)</span>
 
 <span class="sd">    Args:</span>
@@ -16753,7 +16759,7 @@ Available parameters can be found at https://github.com/radiantearth/stac-api-sp
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/common.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">has_transparency</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">has_transparency</span><span class="p">(</span><span class="n">img</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks whether an image has transparency.</span>
 
 <span class="sd">    Args:</span>
@@ -16832,7 +16838,7 @@ Available parameters can be found at https://github.com/radiantearth/stac-api-sp
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/common.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">hex_to_rgb</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;FFFFFF&quot;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">hex_to_rgb</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;FFFFFF&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts hex color to RGB color.</span>
 
 <span class="sd">    Args:</span>
@@ -21148,7 +21154,7 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = f&#39;{os.environ[&#39;JUP
     <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">transpose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">bands</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">size</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">size</span><span class="p">:</span> <span class="n">Tuple</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">resize_args</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -21280,7 +21286,7 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = f&#39;{os.environ[&#39;JUP
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/common.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">open_image_from_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">open_image_from_url</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads an image from the specified URL.</span>
 
 <span class="sd">    Args:</span>
@@ -23897,7 +23903,7 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = f&#39;{os.environ[&#39;JUP
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/common.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">random_string</span><span class="p">(</span><span class="n">string_length</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">random_string</span><span class="p">(</span><span class="n">string_length</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates a random string of fixed length.</span>
 
 <span class="sd">    Args:</span>
@@ -24855,7 +24861,7 @@ Can be "bucket-owner" or "requester". Defaults to "bucket-owner".</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/common.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">rgb_to_hex</span><span class="p">(</span><span class="n">rgb</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">rgb_to_hex</span><span class="p">(</span><span class="n">rgb</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts RGB to hex color. In RGB color R stands for Red, G stands for Green, and B stands for Blue, and it ranges from the decimal value of 0 – 255.</span>
 
 <span class="sd">    Args:</span>
@@ -26445,7 +26451,7 @@ Can be "bucket-owner" or "requester". Defaults to "bucket-owner".</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/common.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">set_proxy</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">1080</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="s2">&quot;http://127.0.0.1&quot;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">set_proxy</span><span class="p">(</span><span class="n">port</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1080</span><span class="p">,</span> <span class="n">ip</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;http://127.0.0.1&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Sets proxy if needed. This is only needed for countries where Google services are not available.</span>
 
 <span class="sd">    Args:</span>
@@ -26543,7 +26549,7 @@ Can be "bucket-owner" or "requester". Defaults to "bucket-owner".</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/common.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">show_html</span><span class="p">(</span><span class="n">html</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">show_html</span><span class="p">(</span><span class="n">html</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Shows HTML within Jupyter notebook.</span>
 
 <span class="sd">    Args:</span>
@@ -26622,7 +26628,9 @@ Can be "bucket-owner" or "requester". Defaults to "bucket-owner".</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/common.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">show_image</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">show_image</span><span class="p">(</span>
+    <span class="n">img_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Shows an image within Jupyter notebook.</span>
 
 <span class="sd">    Args:</span>
@@ -27515,7 +27523,7 @@ Can be "bucket-owner" or "requester". Defaults to "bucket-owner".</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/common.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">system_fonts</span><span class="p">(</span><span class="n">show_full_path</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">system_fonts</span><span class="p">(</span><span class="n">show_full_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Gets a list of system fonts</span>
 
 <span class="sd">        # Common font locations:</span>
@@ -28433,7 +28441,7 @@ In this way, I don't have to keep updating pypi and conda-forge with every minor
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/common.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">upload_to_imgur</span><span class="p">(</span><span class="n">in_gif</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">upload_to_imgur</span><span class="p">(</span><span class="n">in_gif</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Uploads an image to imgur.com</span>
 
 <span class="sd">    Args:</span>
@@ -29697,7 +29705,12 @@ include 'first', 'last' (default), 'min', 'max', 'sum', 'number'. Defaults to 'l
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/common.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">whiteboxgui</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tree</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">reset</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sandbox_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">whiteboxgui</span><span class="p">(</span>
+    <span class="n">verbose</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">tree</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">reset</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">sandbox_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Shows the WhiteboxTools GUI.</span>
 
 <span class="sd">    Args:</span>

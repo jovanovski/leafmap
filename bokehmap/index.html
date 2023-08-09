@@ -21,7 +21,7 @@
         <link rel="next" href="../colormaps/">
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
@@ -2260,13 +2260,13 @@ Map        </code>
           <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Map</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-        <span class="n">zoom</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-        <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span>
-        <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
-        <span class="n">basemap</span><span class="o">=</span><span class="s2">&quot;OpenStreetMap&quot;</span><span class="p">,</span>
-        <span class="n">grid_visible</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">output_notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">center</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">zoom</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">width</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">800</span><span class="p">,</span>
+        <span class="n">height</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span>
+        <span class="n">basemap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;OpenStreetMap&quot;</span><span class="p">,</span>
+        <span class="n">grid_visible</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">output_notebook</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="k">if</span> <span class="s2">&quot;x_axis_type&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
@@ -2313,7 +2313,12 @@ Map        </code>
             <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OUTPUT_NOTEBOOK&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;True&quot;</span>
         <span class="n">show</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">add_basemap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="s2">&quot;OpenStreetMap&quot;</span><span class="p">,</span> <span class="n">retina</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">add_basemap</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">basemap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;OpenStreetMap&quot;</span><span class="p">,</span>
+        <span class="n">retina</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a basemap to the map.</span>
 
 <span class="sd">        Args:</span>
@@ -2350,8 +2355,10 @@ Map        </code>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                         <span class="sa">f</span><span class="s2">&quot;Basemap </span><span class="si">{</span><span class="n">basemap</span><span class="si">}</span><span class="s2"> is not supported. Please choose one from </span><span class="si">{</span><span class="n">basemaps</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
                     <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">basemap</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Please specify a valid basemap&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">add_tile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tile</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">add_tile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tile</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a tile to the map.</span>
 
 <span class="sd">        Args:</span>
@@ -2367,12 +2374,12 @@ Map        </code>
 
     <span class="k">def</span> <span class="nf">add_cog_layer</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">url</span><span class="p">,</span>
-        <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">cog_args</span><span class="o">=</span><span class="p">{},</span>
-        <span class="n">fit_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">attribution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">bands</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">cog_args</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{},</span>
+        <span class="n">fit_bounds</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a COG TileLayer to the map.</span>
@@ -2401,15 +2408,15 @@ Map        </code>
 
     <span class="k">def</span> <span class="nf">add_raster</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">source</span><span class="p">,</span>
-        <span class="n">band</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">palette</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">nodata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">band</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">palette</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">vmin</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">vmax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">nodata</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">attribution</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">fit_bounds</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Local COG&quot;</span><span class="p">,</span>
-        <span class="n">fit_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">open_args</span><span class="o">=</span><span class="p">{},</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
@@ -2464,14 +2471,14 @@ Map        </code>
 
     <span class="k">def</span> <span class="nf">add_stac_layer</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">assets</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="n">fit_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">collection</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">item</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">assets</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">bands</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">attribution</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">fit_bounds</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">open_args</span><span class="o">=</span><span class="p">{},</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
@@ -2479,7 +2486,7 @@ Map        </code>
 
 <span class="sd">        Args:</span>
 <span class="sd">            url (str): HTTP URL to a STAC item, e.g., https://canada-spot-ortho.s3.amazonaws.com/canada_spot_orthoimages/canada_spot5_orthoimages/S5_2007/S5_11055_6057_20070622/S5_11055_6057_20070622.json</span>
-<span class="sd">            collection (str): The Microsoft Planetary Computer STAC collection ID, e.g., landsat-8-c2-l2.</span>
+<span class="sd">            collection (str | Optional): The Microsoft Planetary Computer STAC collection ID, e.g., landsat-8-c2-l2.</span>
 <span class="sd">            item (str): The Microsoft Planetary Computer STAC item ID, e.g., LC08_L2SP_047027_20201204_02_T1.</span>
 <span class="sd">            assets (str | list): The Microsoft Planetary Computer STAC asset ID, e.g., [&quot;SR_B7&quot;, &quot;SR_B5&quot;, &quot;SR_B4&quot;].</span>
 <span class="sd">            bands (list): A list of band names, e.g., [&quot;SR_B7&quot;, &quot;SR_B5&quot;, &quot;SR_B4&quot;]</span>
@@ -2550,12 +2557,12 @@ Map        </code>
 
     <span class="k">def</span> <span class="nf">add_geojson</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">filename</span><span class="p">,</span>
-        <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
-        <span class="n">read_file_args</span><span class="o">=</span><span class="p">{},</span>
-        <span class="n">to_crs</span><span class="o">=</span><span class="s2">&quot;epsg:3857&quot;</span><span class="p">,</span>
-        <span class="n">tooltips</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">fit_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">encoding</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
+        <span class="n">read_file_args</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{},</span>
+        <span class="n">to_crs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;epsg:3857&quot;</span><span class="p">,</span>
+        <span class="n">tooltips</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">fit_bounds</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a GeoJSON file to the map.</span>
@@ -2563,7 +2570,7 @@ Map        </code>
 <span class="sd">        Args:</span>
 <span class="sd">            filename (str): The path to the GeoJSON file. Can be a local file or a URL.</span>
 <span class="sd">            encoding (str, optional): The encoding of the GeoJSON file. Defaults to &quot;utf-8&quot;.</span>
-<span class="sd">            read_file_args (dict, optional): A dictionary of arguments to pass to geopandas.read_file. Defaults to {}.</span>
+<span class="sd">            read_file_args (Dict, optional): A dictionary of arguments to pass to geopandas.read_file. Defaults to {}.</span>
 <span class="sd">            to_crs (str, optional): The CRS to use for the GeoDataFrame. Defaults to &quot;epsg:3857&quot;.</span>
 <span class="sd">            tooltips (list, optional): A list of column names to use for tooltips in the form of [(name, @column_name), ...]. Defaults to None, which uses all columns.</span>
 <span class="sd">            fit_bounds (bool, optional): A flag indicating whether to fit the map bounds to the GeoJSON. Defaults to True.</span>
@@ -2582,12 +2589,12 @@ Map        </code>
 
     <span class="k">def</span> <span class="nf">add_shp</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">filename</span><span class="p">,</span>
-        <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
-        <span class="n">read_file_args</span><span class="o">=</span><span class="p">{},</span>
-        <span class="n">to_crs</span><span class="o">=</span><span class="s2">&quot;epsg:3857&quot;</span><span class="p">,</span>
-        <span class="n">tooltips</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">fit_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">encoding</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
+        <span class="n">read_file_args</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{},</span>
+        <span class="n">to_crs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;epsg:3857&quot;</span><span class="p">,</span>
+        <span class="n">tooltips</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">fit_bounds</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a shapefile to the map.</span>
@@ -2635,12 +2642,12 @@ Map        </code>
 
     <span class="k">def</span> <span class="nf">add_vector</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">filename</span><span class="p">,</span>
-        <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
-        <span class="n">read_file_args</span><span class="o">=</span><span class="p">{},</span>
-        <span class="n">to_crs</span><span class="o">=</span><span class="s2">&quot;epsg:3857&quot;</span><span class="p">,</span>
-        <span class="n">tooltips</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">fit_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">encoding</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
+        <span class="n">read_file_args</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{},</span>
+        <span class="n">to_crs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;epsg:3857&quot;</span><span class="p">,</span>
+        <span class="n">tooltips</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">fit_bounds</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a vector dataset to the map.</span>
@@ -2648,7 +2655,7 @@ Map        </code>
 <span class="sd">        Args:</span>
 <span class="sd">            filename (str): The path to the vector dataset. Can be a local file or a URL.</span>
 <span class="sd">            encoding (str, optional): The encoding of the vector dataset. Defaults to &quot;utf-8&quot;.</span>
-<span class="sd">            read_file_args (dict, optional): A dictionary of arguments to pass to geopandas.read_file. Defaults to {}.</span>
+<span class="sd">            read_file_args (Dict, optional): A dictionary of arguments to pass to geopandas.read_file. Defaults to {}.</span>
 <span class="sd">            to_crs (str, optional): The CRS to use for the GeoDataFrame. Defaults to &quot;epsg:3857&quot;.</span>
 <span class="sd">            tooltips (list, optional): A list of column names to use for tooltips in the form of [(name, @column_name), ...]. Defaults to None, which uses all columns.</span>
 <span class="sd">            fit_bounds (bool, optional): A flag indicating whether to fit the map bounds to the vector dataset. Defaults to True.</span>
@@ -2669,7 +2676,9 @@ Map        </code>
             <span class="n">gdf</span><span class="p">,</span> <span class="n">to_crs</span><span class="o">=</span><span class="n">to_crs</span><span class="p">,</span> <span class="n">tooltips</span><span class="o">=</span><span class="n">tooltips</span><span class="p">,</span> <span class="n">fit_bounds</span><span class="o">=</span><span class="n">fit_bounds</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">to_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">to_html</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Converts the map to HTML.</span>
 
 <span class="sd">        Args:</span>
@@ -2679,7 +2688,7 @@ Map        </code>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">fit_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bounds</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fit_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bounds</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Fits the map to the specified bounds in the form of [xmin, ymin, xmax, ymax].</span>
 
 <span class="sd">        Args:</span>
@@ -2693,7 +2702,13 @@ Map        </code>
         <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">y_range</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">y_range</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">to_streamlit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">use_container_width</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">to_streamlit</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">800</span><span class="p">,</span>
+        <span class="n">height</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span>
+        <span class="n">use_container_width</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Displays the map in a Streamlit app.</span>
 
 <span class="sd">        Args:</span>
@@ -2775,7 +2790,12 @@ Map        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/bokehmap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_basemap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="s2">&quot;OpenStreetMap&quot;</span><span class="p">,</span> <span class="n">retina</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_basemap</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">basemap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;OpenStreetMap&quot;</span><span class="p">,</span>
+    <span class="n">retina</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a basemap to the map.</span>
 
 <span class="sd">    Args:</span>
@@ -2812,6 +2832,8 @@ Map        </code>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                     <span class="sa">f</span><span class="s2">&quot;Basemap </span><span class="si">{</span><span class="n">basemap</span><span class="si">}</span><span class="s2"> is not supported. Please choose one from </span><span class="si">{</span><span class="n">basemaps</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
                 <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">basemap</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Please specify a valid basemap&quot;</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -2871,7 +2893,7 @@ Map        </code>
       </tr>
       <tr>
         <td><code>cog_args</code></td>
-        <td></td>
+        <td><code>Dict</code></td>
         <td><p>Arbitrary keyword arguments, including bidx, expression, nodata, unscale, resampling, rescale,
 color_formula, colormap, colormap_name, return_mask. See https://developmentseed.org/titiler/endpoints/cog/
 and https://cogeotiff.github.io/rio-tiler/colormap/. To select a certain bands, use bidx=[1, 2, 3].
@@ -2890,12 +2912,12 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
           <summary>Source code in <code>leafmap/bokehmap.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_cog_layer</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">url</span><span class="p">,</span>
-    <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">cog_args</span><span class="o">=</span><span class="p">{},</span>
-    <span class="n">fit_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">attribution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">bands</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">cog_args</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{},</span>
+    <span class="n">fit_bounds</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a COG TileLayer to the map.</span>
@@ -3074,7 +3096,7 @@ https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plott
       </tr>
       <tr>
         <td><code>read_file_args</code></td>
-        <td><code>dict</code></td>
+        <td><code>Dict</code></td>
         <td><p>A dictionary of arguments to pass to geopandas.read_file. Defaults to {}.</p></td>
         <td><code>{}</code></td>
       </tr>
@@ -3109,12 +3131,12 @@ https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plott
           <summary>Source code in <code>leafmap/bokehmap.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_geojson</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">filename</span><span class="p">,</span>
-    <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
-    <span class="n">read_file_args</span><span class="o">=</span><span class="p">{},</span>
-    <span class="n">to_crs</span><span class="o">=</span><span class="s2">&quot;epsg:3857&quot;</span><span class="p">,</span>
-    <span class="n">tooltips</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">fit_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
+    <span class="n">read_file_args</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{},</span>
+    <span class="n">to_crs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;epsg:3857&quot;</span><span class="p">,</span>
+    <span class="n">tooltips</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">fit_bounds</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a GeoJSON file to the map.</span>
@@ -3122,7 +3144,7 @@ https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plott
 <span class="sd">    Args:</span>
 <span class="sd">        filename (str): The path to the GeoJSON file. Can be a local file or a URL.</span>
 <span class="sd">        encoding (str, optional): The encoding of the GeoJSON file. Defaults to &quot;utf-8&quot;.</span>
-<span class="sd">        read_file_args (dict, optional): A dictionary of arguments to pass to geopandas.read_file. Defaults to {}.</span>
+<span class="sd">        read_file_args (Dict, optional): A dictionary of arguments to pass to geopandas.read_file. Defaults to {}.</span>
 <span class="sd">        to_crs (str, optional): The CRS to use for the GeoDataFrame. Defaults to &quot;epsg:3857&quot;.</span>
 <span class="sd">        tooltips (list, optional): A list of column names to use for tooltips in the form of [(name, @column_name), ...]. Defaults to None, which uses all columns.</span>
 <span class="sd">        fit_bounds (bool, optional): A flag indicating whether to fit the map bounds to the GeoJSON. Defaults to True.</span>
@@ -3151,7 +3173,7 @@ https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plott
 
 
 <h3 id="leafmap.bokehmap.Map.add_raster" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">add_raster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">band</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;Local COG&#39;</span><span class="p">,</span> <span class="n">fit_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">open_args</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">add_raster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">band</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">fit_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;Local COG&#39;</span><span class="p">,</span> <span class="n">open_args</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.bokehmap.Map.add_raster" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -3249,15 +3271,15 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
           <summary>Source code in <code>leafmap/bokehmap.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_raster</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">source</span><span class="p">,</span>
-    <span class="n">band</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">palette</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">nodata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">band</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">palette</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">vmin</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">vmax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">nodata</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">attribution</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">fit_bounds</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Local COG&quot;</span><span class="p">,</span>
-    <span class="n">fit_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">open_args</span><span class="o">=</span><span class="p">{},</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
@@ -3391,12 +3413,12 @@ https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plott
           <summary>Source code in <code>leafmap/bokehmap.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_shp</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">filename</span><span class="p">,</span>
-    <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
-    <span class="n">read_file_args</span><span class="o">=</span><span class="p">{},</span>
-    <span class="n">to_crs</span><span class="o">=</span><span class="s2">&quot;epsg:3857&quot;</span><span class="p">,</span>
-    <span class="n">tooltips</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">fit_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
+    <span class="n">read_file_args</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{},</span>
+    <span class="n">to_crs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;epsg:3857&quot;</span><span class="p">,</span>
+    <span class="n">tooltips</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">fit_bounds</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a shapefile to the map.</span>
@@ -3454,7 +3476,7 @@ https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plott
 
 
 <h3 id="leafmap.bokehmap.Map.add_stac_layer" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">add_stac_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">assets</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">fit_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">open_args</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">add_stac_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">assets</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">fit_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">open_args</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.bokehmap.Map.add_stac_layer" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -3478,11 +3500,11 @@ https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plott
         <td><code>url</code></td>
         <td><code>str</code></td>
         <td><p>HTTP URL to a STAC item, e.g., https://canada-spot-ortho.s3.amazonaws.com/canada_spot_orthoimages/canada_spot5_orthoimages/S5_2007/S5_11055_6057_20070622/S5_11055_6057_20070622.json</p></td>
-        <td><code>None</code></td>
+        <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>collection</code></td>
-        <td><code>str</code></td>
+        <td><code>str | Optional</code></td>
         <td><p>The Microsoft Planetary Computer STAC collection ID, e.g., landsat-8-c2-l2.</p></td>
         <td><code>None</code></td>
       </tr>
@@ -3540,14 +3562,14 @@ https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plott
           <summary>Source code in <code>leafmap/bokehmap.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_stac_layer</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">assets</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">fit_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">collection</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">item</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">assets</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">bands</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">attribution</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">fit_bounds</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">open_args</span><span class="o">=</span><span class="p">{},</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
@@ -3555,7 +3577,7 @@ https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plott
 
 <span class="sd">    Args:</span>
 <span class="sd">        url (str): HTTP URL to a STAC item, e.g., https://canada-spot-ortho.s3.amazonaws.com/canada_spot_orthoimages/canada_spot5_orthoimages/S5_2007/S5_11055_6057_20070622/S5_11055_6057_20070622.json</span>
-<span class="sd">        collection (str): The Microsoft Planetary Computer STAC collection ID, e.g., landsat-8-c2-l2.</span>
+<span class="sd">        collection (str | Optional): The Microsoft Planetary Computer STAC collection ID, e.g., landsat-8-c2-l2.</span>
 <span class="sd">        item (str): The Microsoft Planetary Computer STAC item ID, e.g., LC08_L2SP_047027_20201204_02_T1.</span>
 <span class="sd">        assets (str | list): The Microsoft Planetary Computer STAC asset ID, e.g., [&quot;SR_B7&quot;, &quot;SR_B5&quot;, &quot;SR_B4&quot;].</span>
 <span class="sd">        bands (list): A list of band names, e.g., [&quot;SR_B7&quot;, &quot;SR_B5&quot;, &quot;SR_B4&quot;]</span>
@@ -3627,7 +3649,7 @@ https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plott
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/bokehmap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_tile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tile</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_tile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tile</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a tile to the map.</span>
 
 <span class="sd">    Args:</span>
@@ -3687,7 +3709,7 @@ https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plott
       </tr>
       <tr>
         <td><code>read_file_args</code></td>
-        <td><code>dict</code></td>
+        <td><code>Dict</code></td>
         <td><p>A dictionary of arguments to pass to geopandas.read_file. Defaults to {}.</p></td>
         <td><code>{}</code></td>
       </tr>
@@ -3722,12 +3744,12 @@ https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plott
           <summary>Source code in <code>leafmap/bokehmap.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_vector</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">filename</span><span class="p">,</span>
-    <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
-    <span class="n">read_file_args</span><span class="o">=</span><span class="p">{},</span>
-    <span class="n">to_crs</span><span class="o">=</span><span class="s2">&quot;epsg:3857&quot;</span><span class="p">,</span>
-    <span class="n">tooltips</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">fit_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
+    <span class="n">read_file_args</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{},</span>
+    <span class="n">to_crs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;epsg:3857&quot;</span><span class="p">,</span>
+    <span class="n">tooltips</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">fit_bounds</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a vector dataset to the map.</span>
@@ -3735,7 +3757,7 @@ https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plott
 <span class="sd">    Args:</span>
 <span class="sd">        filename (str): The path to the vector dataset. Can be a local file or a URL.</span>
 <span class="sd">        encoding (str, optional): The encoding of the vector dataset. Defaults to &quot;utf-8&quot;.</span>
-<span class="sd">        read_file_args (dict, optional): A dictionary of arguments to pass to geopandas.read_file. Defaults to {}.</span>
+<span class="sd">        read_file_args (Dict, optional): A dictionary of arguments to pass to geopandas.read_file. Defaults to {}.</span>
 <span class="sd">        to_crs (str, optional): The CRS to use for the GeoDataFrame. Defaults to &quot;epsg:3857&quot;.</span>
 <span class="sd">        tooltips (list, optional): A list of column names to use for tooltips in the form of [(name, @column_name), ...]. Defaults to None, which uses all columns.</span>
 <span class="sd">        fit_bounds (bool, optional): A flag indicating whether to fit the map bounds to the vector dataset. Defaults to True.</span>
@@ -3798,7 +3820,7 @@ https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plott
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/bokehmap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fit_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bounds</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fit_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bounds</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Fits the map to the specified bounds in the form of [xmin, ymin, xmax, ymax].</span>
 
 <span class="sd">    Args:</span>
@@ -3866,7 +3888,9 @@ https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plott
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/bokehmap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">to_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">to_html</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts the map to HTML.</span>
 
 <span class="sd">    Args:</span>
@@ -3936,7 +3960,13 @@ https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plott
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/bokehmap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">to_streamlit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">use_container_width</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">to_streamlit</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">800</span><span class="p">,</span>
+    <span class="n">height</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span>
+    <span class="n">use_container_width</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Displays the map in a Streamlit app.</span>
 
 <span class="sd">    Args:</span>

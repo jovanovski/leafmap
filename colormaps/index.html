@@ -21,7 +21,7 @@
         <link rel="next" href="../common/">
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
@@ -2234,18 +2234,18 @@
         <details class="quote">
           <summary>Source code in <code>leafmap/colormaps.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">create_colormap</span><span class="p">(</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span>
-    <span class="n">colors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">discrete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">width</span><span class="o">=</span><span class="mf">8.0</span><span class="p">,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
-    <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span><span class="p">,</span>
-    <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-    <span class="n">vmax</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-    <span class="n">axis_off</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">show_name</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+    <span class="n">colors</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">discrete</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">8.0</span><span class="p">,</span>
+    <span class="n">height</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span>
+    <span class="n">orientation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;horizontal&quot;</span><span class="p">,</span>
+    <span class="n">vmin</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">vmax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">axis_off</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">show_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">font_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot a matplotlib colormap.</span>
@@ -2380,13 +2380,13 @@
         <details class="quote">
           <summary>Source code in <code>leafmap/colormaps.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_colorbar</span><span class="p">(</span>
-    <span class="n">colors</span><span class="p">,</span>
-    <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-    <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">width</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
-    <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span><span class="p">,</span>
-    <span class="n">discrete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">colors</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span>
+    <span class="n">vmin</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">vmax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">6.0</span><span class="p">,</span>
+    <span class="n">height</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span>
+    <span class="n">orientation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;horizontal&quot;</span><span class="p">,</span>
+    <span class="n">discrete</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a colorbar based on custom colors.</span>
 
@@ -2480,7 +2480,11 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/colormaps.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_palette</span><span class="p">(</span><span class="n">cmap_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_class</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hashtag</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_palette</span><span class="p">(</span>
+    <span class="n">cmap_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_class</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">hashtag</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a palette from a matplotlib colormap. See the list of colormaps at https://matplotlib.org/stable/tutorials/colors/colormaps.html.</span>
 
 <span class="sd">    Args:</span>
@@ -2539,7 +2543,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/colormaps.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">list_colormaps</span><span class="p">(</span><span class="n">add_extra</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">lowercase</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">list_colormaps</span><span class="p">(</span><span class="n">add_extra</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">lowercase</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;List all available colormaps. See a complete lost of colormaps at https://matplotlib.org/stable/tutorials/colors/colormaps.html.</span>
 
 <span class="sd">    Returns:</span>
@@ -2662,18 +2666,18 @@
         <details class="quote">
           <summary>Source code in <code>leafmap/colormaps.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">plot_colormap</span><span class="p">(</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span>
-    <span class="n">colors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">discrete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">width</span><span class="o">=</span><span class="mf">8.0</span><span class="p">,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
-    <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span><span class="p">,</span>
-    <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-    <span class="n">vmax</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-    <span class="n">axis_off</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">show_name</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+    <span class="n">colors</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">discrete</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">8.0</span><span class="p">,</span>
+    <span class="n">height</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span>
+    <span class="n">orientation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;horizontal&quot;</span><span class="p">,</span>
+    <span class="n">vmin</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">vmax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">axis_off</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">show_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">font_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot a matplotlib colormap.</span>
@@ -2783,7 +2787,12 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/colormaps.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">plot_colormaps</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mf">8.0</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">return_fig</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">plot_colormaps</span><span class="p">(</span>
+    <span class="n">width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">8.0</span><span class="p">,</span>
+    <span class="n">height</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span>
+    <span class="n">return_fig</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot all available colormaps.</span>
 
 <span class="sd">    Args:</span>

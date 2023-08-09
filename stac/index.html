@@ -21,7 +21,7 @@
         <link rel="next" href="../toolbar/">
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
@@ -2737,9 +2737,9 @@ PlanetaryComputerEndpoint            (<a class="autorefs autorefs-internal" titl
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">endpoint</span><span class="o">=</span><span class="s2">&quot;https://planetarycomputer.microsoft.com/api/data/v1&quot;</span><span class="p">,</span>
-        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;item&quot;</span><span class="p">,</span>
-        <span class="n">TileMatrixSetId</span><span class="o">=</span><span class="s2">&quot;WebMercatorQuad&quot;</span><span class="p">,</span>
+        <span class="n">endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;https://planetarycomputer.microsoft.com/api/data/v1&quot;</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;item&quot;</span><span class="p">,</span>
+        <span class="n">TileMatrixSetId</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;WebMercatorQuad&quot;</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the PlanetaryComputerEndpoint object.</span>
 
@@ -2852,9 +2852,9 @@ PlanetaryComputerEndpoint            (<a class="autorefs autorefs-internal" titl
           <summary>Source code in <code>leafmap/stac.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">endpoint</span><span class="o">=</span><span class="s2">&quot;https://planetarycomputer.microsoft.com/api/data/v1&quot;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;item&quot;</span><span class="p">,</span>
-    <span class="n">TileMatrixSetId</span><span class="o">=</span><span class="s2">&quot;WebMercatorQuad&quot;</span><span class="p">,</span>
+    <span class="n">endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;https://planetarycomputer.microsoft.com/api/data/v1&quot;</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;item&quot;</span><span class="p">,</span>
+    <span class="n">TileMatrixSetId</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;WebMercatorQuad&quot;</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Initialize the PlanetaryComputerEndpoint object.</span>
 
@@ -2917,9 +2917,9 @@ TitilerEndpoint        </code>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">endpoint</span><span class="o">=</span><span class="s2">&quot;https://titiler.xyz&quot;</span><span class="p">,</span>
-        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;stac&quot;</span><span class="p">,</span>
-        <span class="n">TileMatrixSetId</span><span class="o">=</span><span class="s2">&quot;WebMercatorQuad&quot;</span><span class="p">,</span>
+        <span class="n">endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;stac&quot;</span><span class="p">,</span>
+        <span class="n">TileMatrixSetId</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;WebMercatorQuad&quot;</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the TitilerEndpoint object.</span>
 
@@ -2977,7 +2977,7 @@ TitilerEndpoint        </code>
 
 
 <h3 id="leafmap.stac.TitilerEndpoint.__init__" class="doc doc-heading">
-<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="s1">&#39;https://titiler.xyz&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;stac&#39;</span><span class="p">,</span> <span class="n">TileMatrixSetId</span><span class="o">=</span><span class="s1">&#39;WebMercatorQuad&#39;</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;stac&#39;</span><span class="p">,</span> <span class="n">TileMatrixSetId</span><span class="o">=</span><span class="s1">&#39;WebMercatorQuad&#39;</span><span class="p">)</span></code>
 
   <span class="doc doc-properties">
       <small class="doc doc-property doc-property-special"><code>special</code></small>
@@ -3004,7 +3004,7 @@ TitilerEndpoint        </code>
         <td><code>endpoint</code></td>
         <td><code>str</code></td>
         <td><p>The endpoint of the titiler server. Defaults to "https://titiler.xyz".</p></td>
-        <td><code>&#39;https://titiler.xyz&#39;</code></td>
+        <td><code>None</code></td>
       </tr>
       <tr>
         <td><code>name</code></td>
@@ -3024,9 +3024,9 @@ TitilerEndpoint        </code>
           <summary>Source code in <code>leafmap/stac.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">endpoint</span><span class="o">=</span><span class="s2">&quot;https://titiler.xyz&quot;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;stac&quot;</span><span class="p">,</span>
-    <span class="n">TileMatrixSetId</span><span class="o">=</span><span class="s2">&quot;WebMercatorQuad&quot;</span><span class="p">,</span>
+    <span class="n">endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;stac&quot;</span><span class="p">,</span>
+    <span class="n">TileMatrixSetId</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;WebMercatorQuad&quot;</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Initialize the TitilerEndpoint object.</span>
 
@@ -3096,7 +3096,7 @@ TitilerEndpoint        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">check_titiler_endpoint</span><span class="p">(</span><span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">check_titiler_endpoint</span><span class="p">(</span><span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the default titiler endpoint.</span>
 
 <span class="sd">    Returns:</span>
@@ -3178,7 +3178,10 @@ TitilerEndpoint        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cog_bands</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cog_bands</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get band names of a Cloud Optimized GeoTIFF (COG).</span>
 
 <span class="sd">    Args:</span>
@@ -3263,7 +3266,10 @@ TitilerEndpoint        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cog_bounds</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cog_bounds</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the bounding box of a Cloud Optimized GeoTIFF (COG).</span>
 
 <span class="sd">    Args:</span>
@@ -3346,7 +3352,10 @@ TitilerEndpoint        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cog_center</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cog_center</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the centroid of a Cloud Optimized GeoTIFF (COG).</span>
 
 <span class="sd">    Args:</span>
@@ -3424,7 +3433,11 @@ TitilerEndpoint        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cog_info</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_geojson</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cog_info</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">return_geojson</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get band statistics of a Cloud Optimized GeoTIFF (COG).</span>
 
 <span class="sd">    Args:</span>
@@ -3552,14 +3565,14 @@ TitilerEndpoint        </code>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cog_mosaic</span><span class="p">(</span>
-    <span class="n">links</span><span class="p">,</span>
-    <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">username</span><span class="o">=</span><span class="s2">&quot;anonymous&quot;</span><span class="p">,</span>
+    <span class="n">links</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">username</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;anonymous&quot;</span><span class="p">,</span>
     <span class="n">layername</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">overwrite</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="p">):</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a COG mosaic from a list of COG URLs.</span>
 
 <span class="sd">    Args:</span>
@@ -3709,15 +3722,15 @@ TitilerEndpoint        </code>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cog_mosaic_from_file</span><span class="p">(</span>
-    <span class="n">filepath</span><span class="p">,</span>
-    <span class="n">skip_rows</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-    <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">username</span><span class="o">=</span><span class="s2">&quot;anonymous&quot;</span><span class="p">,</span>
+    <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">skip_rows</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">username</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;anonymous&quot;</span><span class="p">,</span>
     <span class="n">layername</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">overwrite</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="p">):</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a COG mosaic from a csv/txt file stored locally for through HTTP URL.</span>
 
 <span class="sd">    Args:</span>
@@ -3764,7 +3777,7 @@ TitilerEndpoint        </code>
 
 
 <h2 id="leafmap.stac.cog_pixel_value" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">cog_pixel_value</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">bidx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">cog_pixel_value</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">bidx</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.stac.cog_pixel_value" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -3806,7 +3819,7 @@ TitilerEndpoint        </code>
         <td><code>bidx</code></td>
         <td><code>str</code></td>
         <td><p>Dataset band indexes (e.g bidx=1, bidx=1&amp;bidx=2&amp;bidx=3). Defaults to None.</p></td>
-        <td><code>None</code></td>
+        <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>titiler_endpoint</code></td>
@@ -3840,14 +3853,14 @@ TitilerEndpoint        </code>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cog_pixel_value</span><span class="p">(</span>
-    <span class="n">lon</span><span class="p">,</span>
-    <span class="n">lat</span><span class="p">,</span>
-    <span class="n">url</span><span class="p">,</span>
-    <span class="n">bidx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">lon</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">lat</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">bidx</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="p">):</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get pixel value from COG.</span>
 
 <span class="sd">    Args:</span>
@@ -3948,7 +3961,10 @@ TitilerEndpoint        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cog_stats</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cog_stats</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get band statistics of a Cloud Optimized GeoTIFF (COG).</span>
 
 <span class="sd">    Args:</span>
@@ -4046,7 +4062,12 @@ For example, to apply a rescaling to multiple bands, use something like <code>re
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cog_tile</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cog_tile</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">,</span>
+    <span class="n">bands</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a tile layer from a Cloud Optimized GeoTIFF (COG).</span>
 <span class="sd">        Source code adapted from https://developmentseed.org/titiler/examples/notebooks/Working_with_CloudOptimizedGeoTIFF_simple/</span>
 
@@ -4200,8 +4221,12 @@ For example, to apply a rescaling to multiple bands, use something like <code>re
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cog_tile_vmin_vmax</span><span class="p">(</span>
-    <span class="n">url</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">percentile</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
-<span class="p">):</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">bands</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">percentile</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a tile layer from a Cloud Optimized GeoTIFF (COG) and return the minimum and maximum values.</span>
 
 <span class="sd">    Args:</span>
@@ -4382,7 +4407,11 @@ For example, to apply a rescaling to multiple bands, use something like <code>re
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">download_data_catalogs</span><span class="p">(</span><span class="n">out_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">download_data_catalogs</span><span class="p">(</span>
+    <span class="n">out_dir</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">quiet</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">overwrite</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Download geospatial data catalogs from https://github.com/giswqs/geospatial-data-catalogs.</span>
 
 <span class="sd">    Args:</span>
@@ -4594,7 +4623,11 @@ It can be "visual", "ms_analytic", "pan_analytic", "data-mask". Defaults to ['vi
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">maxar_all_items</span><span class="p">(</span>
-    <span class="n">collection_id</span><span class="p">,</span> <span class="n">return_gdf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">assets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;visual&quot;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="n">collection_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">return_gdf</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">assets</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;visual&quot;</span><span class="p">],</span>
+    <span class="n">verbose</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Retrieve STAC items from Maxar&#39;s public STAC API.</span>
 
@@ -4704,7 +4737,9 @@ Use maxar_collections() to retrieve all available collection IDs.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">maxar_child_collections</span><span class="p">(</span><span class="n">collection_id</span><span class="p">,</span> <span class="n">return_ids</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">maxar_child_collections</span><span class="p">(</span>
+    <span class="n">collection_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">return_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a list of Maxar child collections.</span>
 
 <span class="sd">    Args:</span>
@@ -4904,7 +4939,7 @@ Use maxar_collections() to retrieve all available collection IDs.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">maxar_collections</span><span class="p">(</span><span class="n">return_ids</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">maxar_collections</span><span class="p">(</span><span class="n">return_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a list of Maxar collections.</span>
 
 <span class="sd">    Args:</span>
@@ -5206,7 +5241,13 @@ It can be "visual", "ms_analytic", "pan_analytic", "data-mask". Defaults to ['vi
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">maxar_items</span><span class="p">(</span><span class="n">collection_id</span><span class="p">,</span> <span class="n">child_id</span><span class="p">,</span> <span class="n">return_gdf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">assets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;visual&quot;</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">maxar_items</span><span class="p">(</span>
+    <span class="n">collection_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">child_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">return_gdf</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">assets</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;visual&quot;</span><span class="p">],</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Retrieve STAC items from Maxar&#39;s public STAC API.</span>
 
 <span class="sd">    Args:</span>
@@ -5827,7 +5868,13 @@ Use maxar_collections() to retrieve all available collection IDs.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_assets</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_assets</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">collection</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">item</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get all assets of a STAC item.</span>
 
 <span class="sd">    Args:</span>
@@ -5936,7 +5983,13 @@ Use maxar_collections() to retrieve all available collection IDs.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_bands</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_bands</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">collection</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">item</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get band names of a single SpatialTemporal Asset Catalog (STAC) item.</span>
 
 <span class="sd">    Args:</span>
@@ -6045,7 +6098,13 @@ Use maxar_collections() to retrieve all available collection IDs.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_bounds</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_bounds</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">collection</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">item</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the bounding box of a single SpatialTemporal Asset Catalog (STAC) item.</span>
 
 <span class="sd">    Args:</span>
@@ -6162,7 +6221,13 @@ Use maxar_collections() to retrieve all available collection IDs.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_center</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_center</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">collection</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">item</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the centroid of a single SpatialTemporal Asset Catalog (STAC) item.</span>
 
 <span class="sd">    Args:</span>
@@ -6260,7 +6325,7 @@ return None.</p></td>
       </tr>
       <tr>
         <td><code>stac_io</code></td>
-        <td><code>pystac.STAC_IO</code></td>
+        <td><code>pystac.stac_io</code></td>
         <td><p>A StacApiIO object to use for I/O requests. Generally, leave
 this to the default. However in cases where customized I/O processing is required, a custom
 instance can be provided here.</p></td>
@@ -6298,14 +6363,14 @@ instance can be provided here.</p></td>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_client</span><span class="p">(</span>
-    <span class="n">url</span><span class="p">,</span>
-    <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">ignore_conformance</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">modifier</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">request_modifier</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">headers</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">parameters</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">ignore_conformance</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">modifier</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">request_modifier</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">stac_io</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">return_col_id</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">return_col_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the STAC client. It wraps the pystac.Client.open() method. See</span>
@@ -6329,7 +6394,7 @@ instance can be provided here.</p></td>
 <span class="sd">            which will be an instance of requests.Request. If the callable returns a requests.Request, that</span>
 <span class="sd">            will be used. Alternately, the callable may simply modify the provided request object and</span>
 <span class="sd">            return None.</span>
-<span class="sd">        stac_io (pystac.STAC_IO, optional): A StacApiIO object to use for I/O requests. Generally, leave</span>
+<span class="sd">        stac_io (pystac.stac_io, optional): A StacApiIO object to use for I/O requests. Generally, leave</span>
 <span class="sd">            this to the default. However in cases where customized I/O processing is required, a custom</span>
 <span class="sd">            instance can be provided here.</span>
 <span class="sd">        return_col_id (bool, optional): Return the collection ID. Defaults to False.</span>
@@ -6444,7 +6509,7 @@ instance can be provided here.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_collections</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">return_ids</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_collections</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">return_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the collection IDs of a STAC catalog.</span>
 
 <span class="sd">    Args:</span>
@@ -6550,8 +6615,13 @@ instance can be provided here.</p></td>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_info</span><span class="p">(</span>
-    <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">assets</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
-<span class="p">):</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">collection</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">item</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">assets</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get band info of a STAC item.</span>
 
 <span class="sd">    Args:</span>
@@ -6670,8 +6740,13 @@ instance can be provided here.</p></td>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_info_geojson</span><span class="p">(</span>
-    <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">assets</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
-<span class="p">):</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">collection</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">item</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">assets</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get band info of a STAC item.</span>
 
 <span class="sd">    Args:</span>
@@ -6773,7 +6848,7 @@ instance can be provided here.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_object_type</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_object_type</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the STAC object type.</span>
 
 <span class="sd">    Args:</span>
@@ -6897,14 +6972,14 @@ instance can be provided here.</p></td>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_pixel_value</span><span class="p">(</span>
-    <span class="n">lon</span><span class="p">,</span>
-    <span class="n">lat</span><span class="p">,</span>
-    <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">assets</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">lon</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">lat</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">collection</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">item</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">assets</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get pixel value from STAC assets.</span>
@@ -7032,7 +7107,7 @@ instance can be provided here.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_root_link</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">return_col_id</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_root_link</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">return_col_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the root link of a STAC object.</span>
 
 <span class="sd">    Args:</span>
@@ -7269,28 +7344,28 @@ unmarshalling errors. Defaults to None.</p></td>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_search</span><span class="p">(</span>
-    <span class="n">url</span><span class="p">,</span>
-    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-    <span class="n">max_items</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-    <span class="n">ids</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">collections</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">bbox</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">intersects</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">datetime</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">filter_lang</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">sortby</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">get_collection</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">get_items</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">get_assets</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">get_links</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">get_gdf</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">get_info</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">method</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+    <span class="n">max_items</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">limit</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">collections</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">bbox</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">intersects</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">datetime</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">query</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="nb">filter</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">filter_lang</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sortby</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">fields</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">get_collection</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">get_items</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">get_assets</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">get_links</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">get_gdf</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">get_info</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="p">):</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Search a STAC API. The function wraps the pysatc_client.Client.search() method. See</span>
 <span class="sd">        https://pystac-client.readthedocs.io/en/stable/api.html#pystac_client.Client.search</span>
 
@@ -7446,7 +7521,7 @@ unmarshalling errors. Defaults to None.</p></td>
   <tbody>
       <tr>
         <td><code>search</code></td>
-        <td><code>pystac_client.ItemSearch</code></td>
+        <td><code>pystac_client.item_search</code></td>
         <td><p>The search result returned by leafmap.stac_search().</p></td>
         <td><em>required</em></td>
       </tr>
@@ -7475,11 +7550,11 @@ unmarshalling errors. Defaults to None.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_search_to_df</span><span class="p">(</span><span class="n">search</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_search_to_df</span><span class="p">(</span><span class="n">search</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert STAC search result to a DataFrame.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        search (pystac_client.ItemSearch): The search result returned by leafmap.stac_search().</span>
+<span class="sd">        search (pystac_client.item_search): The search result returned by leafmap.stac_search().</span>
 <span class="sd">        **kwargs: Additional keyword arguments to pass to the DataFrame.drop() function.</span>
 
 <span class="sd">    Returns:</span>
@@ -7522,7 +7597,7 @@ unmarshalling errors. Defaults to None.</p></td>
   <tbody>
       <tr>
         <td><code>search</code></td>
-        <td><code>pystac_client.ItemSearch</code></td>
+        <td><code>pystac_client.item_search</code></td>
         <td><p>The search result returned by leafmap.stac_search().</p></td>
         <td><em>required</em></td>
       </tr>
@@ -7545,11 +7620,11 @@ unmarshalling errors. Defaults to None.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_search_to_dict</span><span class="p">(</span><span class="n">search</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_search_to_dict</span><span class="p">(</span><span class="n">search</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert STAC search result to a dictionary.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        search (pystac_client.ItemSearch): The search result returned by leafmap.stac_search().</span>
+<span class="sd">        search (pystac_client.item_search): The search result returned by leafmap.stac_search().</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        dict: A dictionary of STAC items, with the stac item id as the key, and the stac item as the value.</span>
@@ -7605,7 +7680,7 @@ unmarshalling errors. Defaults to None.</p></td>
   <tbody>
       <tr>
         <td><code>search</code></td>
-        <td><code>pystac_client.ItemSearch</code></td>
+        <td><code>pystac_client.item_search</code></td>
         <td><p>The search result returned by leafmap.stac_search().</p></td>
         <td><em>required</em></td>
       </tr>
@@ -7638,7 +7713,7 @@ unmarshalling errors. Defaults to None.</p></td>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert STAC search result to a GeoDataFrame.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        search (pystac_client.ItemSearch): The search result returned by leafmap.stac_search().</span>
+<span class="sd">        search (pystac_client.item_search): The search result returned by leafmap.stac_search().</span>
 <span class="sd">        **kwargs: Additional keyword arguments to pass to the GeoDataFrame.from_features() function.</span>
 
 <span class="sd">    Returns:</span>
@@ -7685,7 +7760,7 @@ unmarshalling errors. Defaults to None.</p></td>
   <tbody>
       <tr>
         <td><code>search</code></td>
-        <td><code>pystac_client.ItemSearch</code></td>
+        <td><code>pystac_client.item_search</code></td>
         <td><p>The search result returned by leafmap.stac_search().</p></td>
         <td><em>required</em></td>
       </tr>
@@ -7708,11 +7783,11 @@ unmarshalling errors. Defaults to None.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_search_to_list</span><span class="p">(</span><span class="n">search</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_search_to_list</span><span class="p">(</span><span class="n">search</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert STAC search result to a list.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        search (pystac_client.ItemSearch): The search result returned by leafmap.stac_search().</span>
+<span class="sd">        search (pystac_client.item_search): The search result returned by leafmap.stac_search().</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        list: A list of STAC items.</span>
@@ -7802,8 +7877,13 @@ unmarshalling errors. Defaults to None.</p></td>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_stats</span><span class="p">(</span>
-    <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">assets</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
-<span class="p">):</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">collection</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">item</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">assets</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get band statistics of a STAC item.</span>
 
 <span class="sd">    Args:</span>
@@ -7930,14 +8010,14 @@ unmarshalling errors. Defaults to None.</p></td>
         <details class="quote">
           <summary>Source code in <code>leafmap/stac.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stac_tile</span><span class="p">(</span>
-    <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">assets</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">collection</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">item</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">assets</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">bands</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="p">):</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a tile layer from a single SpatialTemporal Asset Catalog (STAC) item.</span>
 
 <span class="sd">    Args:</span>
