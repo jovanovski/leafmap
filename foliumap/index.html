@@ -4567,6 +4567,7 @@ Map            (<span title="folium.folium.Map">Map</span>)
         <span class="n">shown</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">bands</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a COG TileLayer to the map.</span>
@@ -4579,6 +4580,7 @@ Map            (<span title="folium.folium.Map">Map</span>)
 <span class="sd">            shown (bool, optional): A flag indicating whether the layer should be on by default. Defaults to True.</span>
 <span class="sd">            bands (list, optional): A list of bands to use. Defaults to None.</span>
 <span class="sd">            titiler_endpoint (str, optional): TiTiler endpoint. Defaults to &quot;https://titiler.xyz&quot;.</span>
+<span class="sd">            zoom_to_layer (bool, optional): Whether to zoom to the layer extent. Defaults to True.</span>
 <span class="sd">            **kwargs: Arbitrary keyword arguments, including bidx, expression, nodata, unscale, resampling, rescale,</span>
 <span class="sd">                color_formula, colormap, colormap_name, return_mask. See https://developmentseed.org/titiler/endpoints/cog/</span>
 <span class="sd">                and https://cogeotiff.github.io/rio-tiler/colormap/. To select a certain bands, use bidx=[1, 2, 3].</span>
@@ -4593,8 +4595,9 @@ Map            (<span title="folium.folium.Map">Map</span>)
             <span class="n">opacity</span><span class="o">=</span><span class="n">opacity</span><span class="p">,</span>
             <span class="n">shown</span><span class="o">=</span><span class="n">shown</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fit_bounds</span><span class="p">([[</span><span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">]]])</span>
-        <span class="n">arc_zoom_to_extent</span><span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">zoom_to_layer</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fit_bounds</span><span class="p">([[</span><span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">]]])</span>
+            <span class="n">arc_zoom_to_extent</span><span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 
     <span class="k">def</span> <span class="nf">add_cog_mosaic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
@@ -7137,7 +7140,7 @@ Map            (<span title="folium.folium.Map">Map</span>)
 
 
 <h3 id="leafmap.foliumap.Map.add_cog_layer" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">add_cog_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Untitled&#39;</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shown</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">add_cog_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Untitled&#39;</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shown</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titiler_endpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.foliumap.Map.add_cog_layer" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -7200,6 +7203,12 @@ Map            (<span title="folium.folium.Map">Map</span>)
         <td><code>None</code></td>
       </tr>
       <tr>
+        <td><code>zoom_to_layer</code></td>
+        <td><code>bool</code></td>
+        <td><p>Whether to zoom to the layer extent. Defaults to True.</p></td>
+        <td><code>True</code></td>
+      </tr>
+      <tr>
         <td><code>**kwargs</code></td>
         <td></td>
         <td><p>Arbitrary keyword arguments, including bidx, expression, nodata, unscale, resampling, rescale,
@@ -7221,6 +7230,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
     <span class="n">shown</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">bands</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">titiler_endpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a COG TileLayer to the map.</span>
@@ -7233,6 +7243,7 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
 <span class="sd">        shown (bool, optional): A flag indicating whether the layer should be on by default. Defaults to True.</span>
 <span class="sd">        bands (list, optional): A list of bands to use. Defaults to None.</span>
 <span class="sd">        titiler_endpoint (str, optional): TiTiler endpoint. Defaults to &quot;https://titiler.xyz&quot;.</span>
+<span class="sd">        zoom_to_layer (bool, optional): Whether to zoom to the layer extent. Defaults to True.</span>
 <span class="sd">        **kwargs: Arbitrary keyword arguments, including bidx, expression, nodata, unscale, resampling, rescale,</span>
 <span class="sd">            color_formula, colormap, colormap_name, return_mask. See https://developmentseed.org/titiler/endpoints/cog/</span>
 <span class="sd">            and https://cogeotiff.github.io/rio-tiler/colormap/. To select a certain bands, use bidx=[1, 2, 3].</span>
@@ -7247,8 +7258,9 @@ apply a rescaling to multiple bands, use something like <code>rescale=["164,223"
         <span class="n">opacity</span><span class="o">=</span><span class="n">opacity</span><span class="p">,</span>
         <span class="n">shown</span><span class="o">=</span><span class="n">shown</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">fit_bounds</span><span class="p">([[</span><span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">]]])</span>
-    <span class="n">arc_zoom_to_extent</span><span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">zoom_to_layer</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit_bounds</span><span class="p">([[</span><span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">]]])</span>
+        <span class="n">arc_zoom_to_extent</span><span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 </code></pre></div>
         </details>
     </div>
