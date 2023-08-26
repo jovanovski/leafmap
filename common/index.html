@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.4">
     
     
       
@@ -1286,6 +1286,13 @@
         <li class="md-nav__item">
   <a href="#leafmap.common.get_geometry_coords" class="md-nav__link">
     get_geometry_coords()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leafmap.common.get_geometry_type" class="md-nav__link">
+    get_geometry_type()
   </a>
   
 </li>
@@ -4842,6 +4849,13 @@
         <li class="md-nav__item">
   <a href="#leafmap.common.get_geometry_coords" class="md-nav__link">
     get_geometry_coords()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leafmap.common.get_geometry_type" class="md-nav__link">
+    get_geometry_type()
   </a>
   
 </li>
@@ -15715,6 +15729,111 @@ Source code adapted from https://github.com/mapbox/rasterio/blob/master/rasterio
             <span class="k">if</span> <span class="n">mercator</span><span class="p">:</span>
                 <span class="n">coords</span> <span class="o">=</span> <span class="n">lnglat_to_meters</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">coords</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
             <span class="k">return</span> <span class="n">coords</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="leafmap.common.get_geometry_type" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_geometry_type</span><span class="p">(</span><span class="n">in_geojson</span><span class="p">)</span></code>
+
+
+<a href="#leafmap.common.get_geometry_type" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Get the geometry type of a GeoJSON file.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>in_geojson</code></td>
+        <td><code>str | dict</code></td>
+        <td><p>The path to the GeoJSON file or a GeoJSON dictionary.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>str</code></td>
+      <td><p>The geometry type. Can be one of "Point", "LineString", "Polygon", "MultiPoint",
+    "MultiLineString", "MultiPolygon", "GeometryCollection", or "Unknown".</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>leafmap/common.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_geometry_type</span><span class="p">(</span><span class="n">in_geojson</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the geometry type of a GeoJSON file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        in_geojson (str | dict): The path to the GeoJSON file or a GeoJSON dictionary.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: The geometry type. Can be one of &quot;Point&quot;, &quot;LineString&quot;, &quot;Polygon&quot;, &quot;MultiPoint&quot;,</span>
+<span class="sd">            &quot;MultiLineString&quot;, &quot;MultiPolygon&quot;, &quot;GeometryCollection&quot;, or &quot;Unknown&quot;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">import</span> <span class="nn">geojson</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">in_geojson</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>  <span class="c1"># If input is a file path</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">in_geojson</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">geojson_file</span><span class="p">:</span>
+                <span class="n">geojson_data</span> <span class="o">=</span> <span class="n">geojson</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">geojson_file</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">in_geojson</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>  <span class="c1"># If input is a GeoJSON dictionary</span>
+            <span class="n">geojson_data</span> <span class="o">=</span> <span class="n">in_geojson</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Invalid input type. Expected file path or dictionary.&quot;</span>
+
+        <span class="k">if</span> <span class="s2">&quot;type&quot;</span> <span class="ow">in</span> <span class="n">geojson_data</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">geojson_data</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;FeatureCollection&quot;</span><span class="p">:</span>
+                <span class="n">features</span> <span class="o">=</span> <span class="n">geojson_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;features&quot;</span><span class="p">,</span> <span class="p">[])</span>
+                <span class="k">if</span> <span class="n">features</span><span class="p">:</span>
+                    <span class="n">first_feature</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">geometry</span> <span class="o">=</span> <span class="n">first_feature</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;geometry&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">geometry</span> <span class="ow">and</span> <span class="s2">&quot;type&quot;</span> <span class="ow">in</span> <span class="n">geometry</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="s2">&quot;No geometry type found in the first feature.&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="s2">&quot;No features found in the FeatureCollection.&quot;</span>
+            <span class="k">elif</span> <span class="n">geojson_data</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Feature&quot;</span><span class="p">:</span>
+                <span class="n">geometry</span> <span class="o">=</span> <span class="n">geojson_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;geometry&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">geometry</span> <span class="ow">and</span> <span class="s2">&quot;type&quot;</span> <span class="ow">in</span> <span class="n">geometry</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">geometry</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="s2">&quot;No geometry type found in the Feature.&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">&quot;Unsupported GeoJSON type.&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;No &#39;type&#39; field found in the GeoJSON data.&quot;</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">e</span>
 </code></pre></div>
         </details>
     </div>

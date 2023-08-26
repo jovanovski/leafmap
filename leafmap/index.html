@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.4">
     
     
       
@@ -1256,6 +1256,13 @@
           <li class="md-nav__item">
   <a href="#leafmap.leafmap.Map.layer_opacity" class="md-nav__link">
     layer_opacity()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leafmap.leafmap.Map.marker_cluster" class="md-nav__link">
+    marker_cluster()
   </a>
   
 </li>
@@ -3890,6 +3897,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#leafmap.leafmap.Map.marker_cluster" class="md-nav__link">
+    marker_cluster()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#leafmap.leafmap.Map.oam_search" class="md-nav__link">
     oam_search()
   </a>
@@ -4307,7 +4321,7 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
                 <span class="bp">self</span><span class="o">.</span><span class="n">sandbox_path</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="k">if</span> <span class="s2">&quot;height&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="s2">&quot;600px&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="s2">&quot;500px&quot;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">],</span> <span class="nb">int</span><span class="p">):</span>
                 <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;px&quot;</span>
@@ -5232,7 +5246,7 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
         <span class="n">minimap_control</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">WidgetControl</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">minimap</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="n">position</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">minimap_control</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">add_marker_cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="n">add_marker</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">marker_cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="n">add_marker</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Captures user inputs and add markers to the map.</span>
 
 <span class="sd">        Args:</span>
@@ -6379,7 +6393,7 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
         <span class="n">style_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">fill_colors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">],</span>
         <span class="n">info_mode</span><span class="o">=</span><span class="s2">&quot;on_hover&quot;</span><span class="p">,</span>
-        <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a shapefile to the map.</span>
@@ -6392,7 +6406,7 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
 <span class="sd">            style_callback (function, optional): Styling function that is called for each feature, and should return the feature style. This styling function takes the feature as argument. Defaults to None.</span>
 <span class="sd">            fill_colors (list, optional): The random colors to use for filling polygons. Defaults to [&quot;black&quot;].</span>
 <span class="sd">            info_mode (str, optional): Displays the attributes by either on_hover or on_click. Any value other than &quot;on_hover&quot; or &quot;on_click&quot; will be treated as None. Defaults to &quot;on_hover&quot;.</span>
-<span class="sd">            zoom_to_layer (bool, optional): Whether to zoom to the layer after adding it to the map. Defaults to True.</span>
+<span class="sd">            zoom_to_layer (bool, optional): Whether to zoom to the layer after adding it to the map. Defaults to False.</span>
 <span class="sd">            encoding (str, optional): The encoding of the shapefile. Defaults to &quot;utf-8&quot;.</span>
 
 <span class="sd">        Raises:</span>
@@ -6402,12 +6416,11 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
         <span class="kn">import</span> <span class="nn">glob</span>
 
         <span class="k">if</span> <span class="n">in_shp</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">in_shp</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.zip&quot;</span><span class="p">):</span>
-            <span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;./cache/shp&quot;</span><span class="p">)</span>
+            <span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">temp_file_path</span><span class="p">(</span><span class="s2">&quot;.shp&quot;</span><span class="p">))</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">out_dir</span><span class="p">):</span>
                 <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">out_dir</span><span class="p">)</span>
             <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">in_shp</span><span class="p">)</span>
             <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="n">basename</span><span class="p">)</span>
-            <span class="c1"># download_from_url(in_shp, out_dir=out_dir, verbose=False)</span>
             <span class="n">download_file</span><span class="p">(</span><span class="n">in_shp</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
             <span class="n">files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="s2">&quot;*.shp&quot;</span><span class="p">)))</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -6443,7 +6456,7 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
         <span class="n">style_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">fill_colors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">],</span>
         <span class="n">info_mode</span><span class="o">=</span><span class="s2">&quot;on_hover&quot;</span><span class="p">,</span>
-        <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
@@ -6457,7 +6470,7 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
 <span class="sd">            style_callback (function, optional): Styling function that is called for each feature, and should return the feature style. This styling function takes the feature as argument. Defaults to None.</span>
 <span class="sd">            fill_colors (list, optional): The random colors to use for filling polygons. Defaults to [&quot;black&quot;].</span>
 <span class="sd">            info_mode (str, optional): Displays the attributes by either on_hover or on_click. Any value other than &quot;on_hover&quot; or &quot;on_click&quot; will be treated as None. Defaults to &quot;on_hover&quot;.</span>
-<span class="sd">            zoom_to_layer (bool, optional): Whether to zoom to the layer after adding it to the map. Defaults to True.</span>
+<span class="sd">            zoom_to_layer (bool, optional): Whether to zoom to the layer after adding it to the map. Defaults to False.</span>
 <span class="sd">            encoding (str, optional): The encoding of the GeoJSON file. Defaults to &quot;utf-8&quot;.</span>
 
 <span class="sd">        Raises:</span>
@@ -6505,18 +6518,24 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
+        <span class="n">geom_type</span> <span class="o">=</span> <span class="n">get_geometry_type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
         <span class="k">if</span> <span class="ow">not</span> <span class="n">style</span><span class="p">:</span>
             <span class="n">style</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="c1"># &quot;stroke&quot;: True,</span>
                 <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#3388ff&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
                 <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="c1"># &quot;fill&quot;: True,</span>
-                <span class="c1"># &quot;fillColor&quot;: &quot;#ffffff&quot;,</span>
-                <span class="s2">&quot;fillOpacity&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s2">&quot;fill&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;fillColor&quot;</span><span class="p">:</span> <span class="s2">&quot;#3388ff&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;fillOpacity&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
                 <span class="c1"># &quot;dashArray&quot;: &quot;9&quot;</span>
                 <span class="c1"># &quot;clickable&quot;: True,</span>
             <span class="p">}</span>
+
+            <span class="k">if</span> <span class="n">geom_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;LineString&quot;</span><span class="p">,</span> <span class="s2">&quot;MultiLineString&quot;</span><span class="p">]:</span>
+                <span class="n">style</span><span class="p">[</span><span class="s2">&quot;fill&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
         <span class="k">elif</span> <span class="s2">&quot;weight&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">style</span><span class="p">:</span>
             <span class="n">style</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -6694,7 +6713,7 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
         <span class="n">style_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">fill_colors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">],</span>
         <span class="n">info_mode</span><span class="o">=</span><span class="s2">&quot;on_hover&quot;</span><span class="p">,</span>
-        <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
@@ -6708,7 +6727,7 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
 <span class="sd">            style_callback (function, optional): Styling function that is called for each feature, and should return the feature style. This styling function takes the feature as argument. Defaults to None.</span>
 <span class="sd">            fill_colors (list, optional): The random colors to use for filling polygons. Defaults to [&quot;black&quot;].</span>
 <span class="sd">            info_mode (str, optional): Displays the attributes by either on_hover or on_click. Any value other than &quot;on_hover&quot; or &quot;on_click&quot; will be treated as None. Defaults to &quot;on_hover&quot;.</span>
-<span class="sd">            zoom_to_layer (bool, optional): Whether to zoom to the layer.</span>
+<span class="sd">            zoom_to_layer (bool, optional): Whether to zoom to the layer. Defaults to False.</span>
 <span class="sd">            encoding (str, optional): The encoding of the GeoDataFrame. Defaults to &quot;utf-8&quot;.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">gdf</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
@@ -7135,8 +7154,13 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
             <span class="n">df</span> <span class="o">=</span> <span class="n">data</span>
         <span class="k">elif</span> <span class="ow">not</span> <span class="n">data</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
             <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;The specified input csv does not exist.&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">data</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.csv&quot;</span><span class="p">):</span>
             <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+
+            <span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">gdf_to_df</span><span class="p">(</span><span class="n">gdf</span><span class="p">)</span>
 
         <span class="n">df</span> <span class="o">=</span> <span class="n">points_from_xy</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
@@ -7310,6 +7334,8 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
             <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">default_style</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cursor&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">}</span>
+
+    <span class="n">add_marker_cluster</span> <span class="o">=</span> <span class="n">add_points_from_xy</span>
 
     <span class="k">def</span> <span class="nf">add_heatmap</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -9516,7 +9542,7 @@ style_callback = lambda feat: {"fillColor": feat["properties"][&quot;color&quot;
 
 
 <h3 id="leafmap.leafmap.Map.add_gdf" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">add_gdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gdf</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;Untitled&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{},</span> <span class="n">hover_style</span><span class="o">=</span><span class="p">{},</span> <span class="n">style_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fill_colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">],</span> <span class="n">info_mode</span><span class="o">=</span><span class="s1">&#39;on_hover&#39;</span><span class="p">,</span> <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">add_gdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gdf</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;Untitled&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{},</span> <span class="n">hover_style</span><span class="o">=</span><span class="p">{},</span> <span class="n">style_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fill_colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">],</span> <span class="n">info_mode</span><span class="o">=</span><span class="s1">&#39;on_hover&#39;</span><span class="p">,</span> <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.leafmap.Map.add_gdf" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -9581,8 +9607,8 @@ style_callback = lambda feat: {"fillColor": feat["properties"][&quot;color&quot;
       <tr>
         <td><code>zoom_to_layer</code></td>
         <td><code>bool</code></td>
-        <td><p>Whether to zoom to the layer.</p></td>
-        <td><code>True</code></td>
+        <td><p>Whether to zoom to the layer. Defaults to False.</p></td>
+        <td><code>False</code></td>
       </tr>
       <tr>
         <td><code>encoding</code></td>
@@ -9603,7 +9629,7 @@ style_callback = lambda feat: {"fillColor": feat["properties"][&quot;color&quot;
     <span class="n">style_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">fill_colors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">],</span>
     <span class="n">info_mode</span><span class="o">=</span><span class="s2">&quot;on_hover&quot;</span><span class="p">,</span>
-    <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
@@ -9617,7 +9643,7 @@ style_callback = lambda feat: {"fillColor": feat["properties"][&quot;color&quot;
 <span class="sd">        style_callback (function, optional): Styling function that is called for each feature, and should return the feature style. This styling function takes the feature as argument. Defaults to None.</span>
 <span class="sd">        fill_colors (list, optional): The random colors to use for filling polygons. Defaults to [&quot;black&quot;].</span>
 <span class="sd">        info_mode (str, optional): Displays the attributes by either on_hover or on_click. Any value other than &quot;on_hover&quot; or &quot;on_click&quot; will be treated as None. Defaults to &quot;on_hover&quot;.</span>
-<span class="sd">        zoom_to_layer (bool, optional): Whether to zoom to the layer.</span>
+<span class="sd">        zoom_to_layer (bool, optional): Whether to zoom to the layer. Defaults to False.</span>
 <span class="sd">        encoding (str, optional): The encoding of the GeoDataFrame. Defaults to &quot;utf-8&quot;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">gdf</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
@@ -9793,7 +9819,7 @@ style_callback = lambda feat: {"fillColor": feat["properties"][&quot;color&quot;
 
 
 <h3 id="leafmap.leafmap.Map.add_geojson" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">add_geojson</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_geojson</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;Untitled&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{},</span> <span class="n">hover_style</span><span class="o">=</span><span class="p">{},</span> <span class="n">style_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fill_colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">],</span> <span class="n">info_mode</span><span class="o">=</span><span class="s1">&#39;on_hover&#39;</span><span class="p">,</span> <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">add_geojson</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_geojson</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;Untitled&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{},</span> <span class="n">hover_style</span><span class="o">=</span><span class="p">{},</span> <span class="n">style_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fill_colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">],</span> <span class="n">info_mode</span><span class="o">=</span><span class="s1">&#39;on_hover&#39;</span><span class="p">,</span> <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.leafmap.Map.add_geojson" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -9858,8 +9884,8 @@ style_callback = lambda feat: {"fillColor": feat["properties"][&quot;color&quot;
       <tr>
         <td><code>zoom_to_layer</code></td>
         <td><code>bool</code></td>
-        <td><p>Whether to zoom to the layer after adding it to the map. Defaults to True.</p></td>
-        <td><code>True</code></td>
+        <td><p>Whether to zoom to the layer after adding it to the map. Defaults to False.</p></td>
+        <td><code>False</code></td>
       </tr>
       <tr>
         <td><code>encoding</code></td>
@@ -9895,7 +9921,7 @@ style_callback = lambda feat: {"fillColor": feat["properties"][&quot;color&quot;
     <span class="n">style_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">fill_colors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">],</span>
     <span class="n">info_mode</span><span class="o">=</span><span class="s2">&quot;on_hover&quot;</span><span class="p">,</span>
-    <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
@@ -9909,7 +9935,7 @@ style_callback = lambda feat: {"fillColor": feat["properties"][&quot;color&quot;
 <span class="sd">        style_callback (function, optional): Styling function that is called for each feature, and should return the feature style. This styling function takes the feature as argument. Defaults to None.</span>
 <span class="sd">        fill_colors (list, optional): The random colors to use for filling polygons. Defaults to [&quot;black&quot;].</span>
 <span class="sd">        info_mode (str, optional): Displays the attributes by either on_hover or on_click. Any value other than &quot;on_hover&quot; or &quot;on_click&quot; will be treated as None. Defaults to &quot;on_hover&quot;.</span>
-<span class="sd">        zoom_to_layer (bool, optional): Whether to zoom to the layer after adding it to the map. Defaults to True.</span>
+<span class="sd">        zoom_to_layer (bool, optional): Whether to zoom to the layer after adding it to the map. Defaults to False.</span>
 <span class="sd">        encoding (str, optional): The encoding of the GeoJSON file. Defaults to &quot;utf-8&quot;.</span>
 
 <span class="sd">    Raises:</span>
@@ -9957,18 +9983,24 @@ style_callback = lambda feat: {"fillColor": feat["properties"][&quot;color&quot;
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
+    <span class="n">geom_type</span> <span class="o">=</span> <span class="n">get_geometry_type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
     <span class="k">if</span> <span class="ow">not</span> <span class="n">style</span><span class="p">:</span>
         <span class="n">style</span> <span class="o">=</span> <span class="p">{</span>
             <span class="c1"># &quot;stroke&quot;: True,</span>
             <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#3388ff&quot;</span><span class="p">,</span>
             <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
             <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="c1"># &quot;fill&quot;: True,</span>
-            <span class="c1"># &quot;fillColor&quot;: &quot;#ffffff&quot;,</span>
-            <span class="s2">&quot;fillOpacity&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;fill&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;fillColor&quot;</span><span class="p">:</span> <span class="s2">&quot;#3388ff&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;fillOpacity&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
             <span class="c1"># &quot;dashArray&quot;: &quot;9&quot;</span>
             <span class="c1"># &quot;clickable&quot;: True,</span>
         <span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">geom_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;LineString&quot;</span><span class="p">,</span> <span class="s2">&quot;MultiLineString&quot;</span><span class="p">]:</span>
+            <span class="n">style</span><span class="p">[</span><span class="s2">&quot;fill&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
     <span class="k">elif</span> <span class="s2">&quot;weight&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">style</span><span class="p">:</span>
         <span class="n">style</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -11513,14 +11545,14 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
 
 
 <h3 id="leafmap.leafmap.Map.add_marker_cluster" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">add_marker_cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="n">add_marker</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">add_marker_cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="n">popup</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;Marker Cluster&#39;</span><span class="p">,</span> <span class="n">color_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">marker_colors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">icon_colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;white&#39;</span><span class="p">],</span> <span class="n">icon_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">],</span> <span class="n">spin</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">add_legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_cluster_radius</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.leafmap.Map.add_marker_cluster" class="headerlink" title="Permanent link">&para;</a></h3>
 
     <div class="doc doc-contents ">
 
-      <p>Captures user inputs and add markers to the map.</p>
+      <p>Adds a marker cluster to the map.</p>
 
 <p><strong>Parameters:</strong></p>
 <table>
@@ -11534,70 +11566,331 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
   </thead>
   <tbody>
       <tr>
-        <td><code>event</code></td>
-        <td><code>str</code></td>
-        <td><p>[description]. Defaults to 'click'.</p></td>
-        <td><code>&#39;click&#39;</code></td>
+        <td><code>data</code></td>
+        <td><code>str | pd.DataFrame</code></td>
+        <td><p>A csv or Pandas DataFrame containing x, y, z values.</p></td>
+        <td><em>required</em></td>
       </tr>
       <tr>
-        <td><code>add_marker</code></td>
+        <td><code>x</code></td>
+        <td><code>str</code></td>
+        <td><p>The column name for the x values. Defaults to "longitude".</p></td>
+        <td><code>&#39;longitude&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>y</code></td>
+        <td><code>str</code></td>
+        <td><p>The column name for the y values. Defaults to "latitude".</p></td>
+        <td><code>&#39;latitude&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>popup</code></td>
+        <td><code>list</code></td>
+        <td><p>A list of column names to be used as the popup. Defaults to None.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>layer_name</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the layer. Defaults to "Marker Cluster".</p></td>
+        <td><code>&#39;Marker Cluster&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>color_column</code></td>
+        <td><code>str</code></td>
+        <td><p>The column name for the color values. Defaults to None.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>marker_colors</code></td>
+        <td><code>list</code></td>
+        <td><p>A list of colors to be used for the markers. Defaults to None.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>icon_colors</code></td>
+        <td><code>list</code></td>
+        <td><p>A list of colors to be used for the icons. Defaults to ['white'].</p></td>
+        <td><code>[&#39;white&#39;]</code></td>
+      </tr>
+      <tr>
+        <td><code>icon_names</code></td>
+        <td><code>list</code></td>
+        <td><p>A list of names to be used for the icons. More icons can be found at https://fontawesome.com/v4/icons. Defaults to ['info'].</p></td>
+        <td><code>[&#39;info&#39;]</code></td>
+      </tr>
+      <tr>
+        <td><code>spin</code></td>
         <td><code>bool</code></td>
-        <td><p>If True, add markers to the map. Defaults to True.</p></td>
+        <td><p>If True, the icon will spin. Defaults to False.</p></td>
+        <td><code>False</code></td>
+      </tr>
+      <tr>
+        <td><code>add_legend</code></td>
+        <td><code>bool</code></td>
+        <td><p>If True, a legend will be added to the map. Defaults to True.</p></td>
         <td><code>True</code></td>
       </tr>
-  </tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>object</code></td>
-      <td><p>a marker cluster.</p></td>
-    </tr>
+      <tr>
+        <td><code>max_cluster_radius</code></td>
+        <td><code>int</code></td>
+        <td><p>The maximum cluster radius. Defaults to 80.</p></td>
+        <td><code>80</code></td>
+      </tr>
+      <tr>
+        <td><code>**kwargs</code></td>
+        <td></td>
+        <td><p>Other keyword arguments to pass to ipyleaflet.MarkerCluster(). For a list of available options,
+see https://github.com/Leaflet/Leaflet.markercluster.</p></td>
+        <td><code>{}</code></td>
+      </tr>
   </tbody>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/leafmap.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_marker_cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="n">add_marker</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Captures user inputs and add markers to the map.</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_points_from_xy</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
+    <span class="n">popup</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Marker Cluster&quot;</span><span class="p">,</span>
+    <span class="n">color_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">marker_colors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">icon_colors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;white&quot;</span><span class="p">],</span>
+    <span class="n">icon_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">],</span>
+    <span class="n">spin</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">add_legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">max_cluster_radius</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a marker cluster to the map.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        event (str, optional): [description]. Defaults to &#39;click&#39;.</span>
-<span class="sd">        add_marker (bool, optional): If True, add markers to the map. Defaults to True.</span>
+<span class="sd">        data (str | pd.DataFrame): A csv or Pandas DataFrame containing x, y, z values.</span>
+<span class="sd">        x (str, optional): The column name for the x values. Defaults to &quot;longitude&quot;.</span>
+<span class="sd">        y (str, optional): The column name for the y values. Defaults to &quot;latitude&quot;.</span>
+<span class="sd">        popup (list, optional): A list of column names to be used as the popup. Defaults to None.</span>
+<span class="sd">        layer_name (str, optional): The name of the layer. Defaults to &quot;Marker Cluster&quot;.</span>
+<span class="sd">        color_column (str, optional): The column name for the color values. Defaults to None.</span>
+<span class="sd">        marker_colors (list, optional): A list of colors to be used for the markers. Defaults to None.</span>
+<span class="sd">        icon_colors (list, optional): A list of colors to be used for the icons. Defaults to [&#39;white&#39;].</span>
+<span class="sd">        icon_names (list, optional): A list of names to be used for the icons. More icons can be found at https://fontawesome.com/v4/icons. Defaults to [&#39;info&#39;].</span>
+<span class="sd">        spin (bool, optional): If True, the icon will spin. Defaults to False.</span>
+<span class="sd">        add_legend (bool, optional): If True, a legend will be added to the map. Defaults to True.</span>
+<span class="sd">        max_cluster_radius (int, optional): The maximum cluster radius. Defaults to 80.</span>
+<span class="sd">        **kwargs: Other keyword arguments to pass to ipyleaflet.MarkerCluster(). For a list of available options,</span>
+<span class="sd">            see https://github.com/Leaflet/Leaflet.markercluster.</span>
 
-<span class="sd">    Returns:</span>
-<span class="sd">        object: a marker cluster.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">coordinates</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">markers</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">marker_cluster</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">MarkerCluster</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Marker Cluster&quot;</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">last_click</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">all_clicks</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">if</span> <span class="n">add_marker</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">marker_cluster</span><span class="p">)</span>
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-    <span class="k">def</span> <span class="nf">handle_interaction</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="n">latlon</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;coordinates&quot;</span><span class="p">)</span>
+    <span class="n">color_options</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;red&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;green&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;purple&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;orange&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;darkred&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lightred&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;beige&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;darkblue&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;darkgreen&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cadetblue&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;darkpurple&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;white&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pink&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lightblue&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lightgreen&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;black&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lightgray&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
 
-        <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="s2">&quot;click&quot;</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;click&quot;</span><span class="p">:</span>
-            <span class="n">coordinates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">latlon</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">last_click</span> <span class="o">=</span> <span class="n">latlon</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">all_clicks</span> <span class="o">=</span> <span class="n">coordinates</span>
-            <span class="k">if</span> <span class="n">add_marker</span><span class="p">:</span>
-                <span class="n">markers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ipyleaflet</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">latlon</span><span class="p">))</span>
-                <span class="n">marker_cluster</span><span class="o">.</span><span class="n">markers</span> <span class="o">=</span> <span class="n">markers</span>
-        <span class="k">elif</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;mousemove&quot;</span><span class="p">:</span>
-            <span class="k">pass</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">data</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">data</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;The specified input csv does not exist.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">data</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.csv&quot;</span><span class="p">):</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 
-    <span class="c1"># cursor style: https://www.w3schools.com/cssref/pr_class_cursor.asp</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">default_style</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cursor&quot;</span><span class="p">:</span> <span class="s2">&quot;crosshair&quot;</span><span class="p">}</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">on_interaction</span><span class="p">(</span><span class="n">handle_interaction</span><span class="p">)</span>
+        <span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">gdf_to_df</span><span class="p">(</span><span class="n">gdf</span><span class="p">)</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">points_from_xy</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="n">col_names</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">color_column</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">color_column</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">col_names</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;The color column </span><span class="si">{</span><span class="n">color_column</span><span class="si">}</span><span class="s2"> does not exist in the dataframe.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">color_column</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">color_column</span><span class="p">]))</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">color_column</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">marker_colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">color_options</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The number of unique values in the color column </span><span class="si">{</span><span class="n">color_column</span><span class="si">}</span><span class="s2"> is greater than the number of available colors.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">marker_colors</span> <span class="o">=</span> <span class="n">color_options</span><span class="p">[:</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)]</span>
+    <span class="k">elif</span> <span class="n">color_column</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">marker_colors</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">marker_colors</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The number of unique values in the color column </span><span class="si">{</span><span class="n">color_column</span><span class="si">}</span><span class="s2"> is not equal to the number of available colors.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">items</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">icon_colors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">icon_colors</span> <span class="o">=</span> <span class="n">icon_colors</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">icon_colors</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The number of unique values in the color column </span><span class="si">{</span><span class="n">color_column</span><span class="si">}</span><span class="s2"> is not equal to the number of available colors.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">icon_names</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">icon_names</span> <span class="o">=</span> <span class="n">icon_names</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">icon_names</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The number of unique values in the color column </span><span class="si">{</span><span class="n">color_column</span><span class="si">}</span><span class="s2"> is not equal to the number of available colors.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="k">if</span> <span class="s2">&quot;geometry&quot;</span> <span class="ow">in</span> <span class="n">col_names</span><span class="p">:</span>
+        <span class="n">col_names</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;geometry&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">popup</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">popup</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">popup</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">col_names</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;popup must be one of the following: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">col_names</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">popup</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span>
+            <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">item</span> <span class="ow">in</span> <span class="n">col_names</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">popup</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;All popup items must be select from: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">col_names</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">popup</span> <span class="o">=</span> <span class="n">col_names</span>
+
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">x</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="n">points</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]))</span>
+
+    <span class="k">if</span> <span class="n">popup</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">popup</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">labels</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">popup</span><span class="p">]</span>
+
+            <span class="n">markers</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">point</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">items</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">marker_color</span> <span class="o">=</span> <span class="n">marker_colors</span><span class="p">[</span>
+                        <span class="n">items</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">color_column</span><span class="p">][</span><span class="n">index</span><span class="p">])</span>
+                    <span class="p">]</span>
+                    <span class="n">icon_name</span> <span class="o">=</span> <span class="n">icon_names</span><span class="p">[</span><span class="n">items</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">color_column</span><span class="p">][</span><span class="n">index</span><span class="p">])]</span>
+                    <span class="n">icon_color</span> <span class="o">=</span> <span class="n">icon_colors</span><span class="p">[</span><span class="n">items</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">color_column</span><span class="p">][</span><span class="n">index</span><span class="p">])]</span>
+                    <span class="n">marker_icon</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">AwesomeIcon</span><span class="p">(</span>
+                        <span class="n">name</span><span class="o">=</span><span class="n">icon_name</span><span class="p">,</span>
+                        <span class="n">marker_color</span><span class="o">=</span><span class="n">marker_color</span><span class="p">,</span>
+                        <span class="n">icon_color</span><span class="o">=</span><span class="n">icon_color</span><span class="p">,</span>
+                        <span class="n">spin</span><span class="o">=</span><span class="n">spin</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">marker_icon</span> <span class="o">=</span> <span class="kc">None</span>
+
+                <span class="n">marker</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span>
+                    <span class="n">location</span><span class="o">=</span><span class="n">point</span><span class="p">,</span>
+                    <span class="n">draggable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">popup</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">index</span><span class="p">])),</span>
+                    <span class="n">icon</span><span class="o">=</span><span class="n">marker_icon</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">markers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">marker</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">popup</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)):</span>
+                <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">popup</span><span class="p">:</span>
+                    <span class="n">label</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="n">label</span>
+                        <span class="o">+</span> <span class="s2">&quot;&lt;b&gt;&quot;</span>
+                        <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                        <span class="o">+</span> <span class="s2">&quot;&lt;/b&gt;&quot;</span>
+                        <span class="o">+</span> <span class="s2">&quot;: &quot;</span>
+                        <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">item</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+                        <span class="o">+</span> <span class="s2">&quot;&lt;br&gt;&quot;</span>
+                    <span class="p">)</span>
+                <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+            <span class="n">df</span><span class="p">[</span><span class="s2">&quot;popup&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span>
+
+            <span class="n">markers</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">point</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">items</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">marker_color</span> <span class="o">=</span> <span class="n">marker_colors</span><span class="p">[</span>
+                        <span class="n">items</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">color_column</span><span class="p">][</span><span class="n">index</span><span class="p">])</span>
+                    <span class="p">]</span>
+                    <span class="n">icon_name</span> <span class="o">=</span> <span class="n">icon_names</span><span class="p">[</span><span class="n">items</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">color_column</span><span class="p">][</span><span class="n">index</span><span class="p">])]</span>
+                    <span class="n">icon_color</span> <span class="o">=</span> <span class="n">icon_colors</span><span class="p">[</span><span class="n">items</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">color_column</span><span class="p">][</span><span class="n">index</span><span class="p">])]</span>
+                    <span class="n">marker_icon</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">AwesomeIcon</span><span class="p">(</span>
+                        <span class="n">name</span><span class="o">=</span><span class="n">icon_name</span><span class="p">,</span>
+                        <span class="n">marker_color</span><span class="o">=</span><span class="n">marker_color</span><span class="p">,</span>
+                        <span class="n">icon_color</span><span class="o">=</span><span class="n">icon_color</span><span class="p">,</span>
+                        <span class="n">spin</span><span class="o">=</span><span class="n">spin</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">marker_icon</span> <span class="o">=</span> <span class="kc">None</span>
+
+                <span class="n">marker</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span>
+                    <span class="n">location</span><span class="o">=</span><span class="n">point</span><span class="p">,</span>
+                    <span class="n">draggable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">popup</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">index</span><span class="p">]),</span>
+                    <span class="n">icon</span><span class="o">=</span><span class="n">marker_icon</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">markers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">marker</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">markers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">points</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">items</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">marker_color</span> <span class="o">=</span> <span class="n">marker_colors</span><span class="p">[</span><span class="n">items</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">color_column</span><span class="p">][</span><span class="n">index</span><span class="p">])]</span>
+                <span class="n">icon_name</span> <span class="o">=</span> <span class="n">icon_names</span><span class="p">[</span><span class="n">items</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">color_column</span><span class="p">][</span><span class="n">index</span><span class="p">])]</span>
+                <span class="n">icon_color</span> <span class="o">=</span> <span class="n">icon_colors</span><span class="p">[</span><span class="n">items</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">color_column</span><span class="p">][</span><span class="n">index</span><span class="p">])]</span>
+                <span class="n">marker_icon</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">AwesomeIcon</span><span class="p">(</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">icon_name</span><span class="p">,</span>
+                    <span class="n">marker_color</span><span class="o">=</span><span class="n">marker_color</span><span class="p">,</span>
+                    <span class="n">icon_color</span><span class="o">=</span><span class="n">icon_color</span><span class="p">,</span>
+                    <span class="n">spin</span><span class="o">=</span><span class="n">spin</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">marker_icon</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="n">marker</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span>
+                <span class="n">location</span><span class="o">=</span><span class="n">point</span><span class="p">,</span> <span class="n">draggable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">icon</span><span class="o">=</span><span class="n">marker_icon</span>
+            <span class="p">)</span>
+            <span class="n">markers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">marker</span><span class="p">)</span>
+
+    <span class="n">marker_cluster</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">MarkerCluster</span><span class="p">(</span>
+        <span class="n">markers</span><span class="o">=</span><span class="n">markers</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">layer_name</span><span class="p">,</span>
+        <span class="n">max_cluster_radius</span><span class="o">=</span><span class="n">max_cluster_radius</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">marker_cluster</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">items</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">add_legend</span><span class="p">:</span>
+        <span class="n">marker_colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">check_color</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">marker_colors</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_legend</span><span class="p">(</span>
+            <span class="n">title</span><span class="o">=</span><span class="n">color_column</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span> <span class="n">colors</span><span class="o">=</span><span class="n">marker_colors</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">items</span>
+        <span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">default_style</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cursor&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">}</span>
 </code></pre></div>
         </details>
     </div>
@@ -13490,8 +13783,13 @@ see https://github.com/Leaflet/Leaflet.markercluster.</p></td>
         <span class="n">df</span> <span class="o">=</span> <span class="n">data</span>
     <span class="k">elif</span> <span class="ow">not</span> <span class="n">data</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
         <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;The specified input csv does not exist.&quot;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">data</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.csv&quot;</span><span class="p">):</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+
+        <span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">gdf_to_df</span><span class="p">(</span><span class="n">gdf</span><span class="p">)</span>
 
     <span class="n">df</span> <span class="o">=</span> <span class="n">points_from_xy</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
@@ -14239,7 +14537,7 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
 
 
 <h3 id="leafmap.leafmap.Map.add_shp" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">add_shp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_shp</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;Untitled&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{},</span> <span class="n">hover_style</span><span class="o">=</span><span class="p">{},</span> <span class="n">style_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fill_colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">],</span> <span class="n">info_mode</span><span class="o">=</span><span class="s1">&#39;on_hover&#39;</span><span class="p">,</span> <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">add_shp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_shp</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;Untitled&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{},</span> <span class="n">hover_style</span><span class="o">=</span><span class="p">{},</span> <span class="n">style_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fill_colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">],</span> <span class="n">info_mode</span><span class="o">=</span><span class="s1">&#39;on_hover&#39;</span><span class="p">,</span> <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.leafmap.Map.add_shp" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -14304,8 +14602,8 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
       <tr>
         <td><code>zoom_to_layer</code></td>
         <td><code>bool</code></td>
-        <td><p>Whether to zoom to the layer after adding it to the map. Defaults to True.</p></td>
-        <td><code>True</code></td>
+        <td><p>Whether to zoom to the layer after adding it to the map. Defaults to False.</p></td>
+        <td><code>False</code></td>
       </tr>
       <tr>
         <td><code>encoding</code></td>
@@ -14341,7 +14639,7 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
     <span class="n">style_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">fill_colors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">],</span>
     <span class="n">info_mode</span><span class="o">=</span><span class="s2">&quot;on_hover&quot;</span><span class="p">,</span>
-    <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a shapefile to the map.</span>
@@ -14354,7 +14652,7 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
 <span class="sd">        style_callback (function, optional): Styling function that is called for each feature, and should return the feature style. This styling function takes the feature as argument. Defaults to None.</span>
 <span class="sd">        fill_colors (list, optional): The random colors to use for filling polygons. Defaults to [&quot;black&quot;].</span>
 <span class="sd">        info_mode (str, optional): Displays the attributes by either on_hover or on_click. Any value other than &quot;on_hover&quot; or &quot;on_click&quot; will be treated as None. Defaults to &quot;on_hover&quot;.</span>
-<span class="sd">        zoom_to_layer (bool, optional): Whether to zoom to the layer after adding it to the map. Defaults to True.</span>
+<span class="sd">        zoom_to_layer (bool, optional): Whether to zoom to the layer after adding it to the map. Defaults to False.</span>
 <span class="sd">        encoding (str, optional): The encoding of the shapefile. Defaults to &quot;utf-8&quot;.</span>
 
 <span class="sd">    Raises:</span>
@@ -14364,12 +14662,11 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
     <span class="kn">import</span> <span class="nn">glob</span>
 
     <span class="k">if</span> <span class="n">in_shp</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">in_shp</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.zip&quot;</span><span class="p">):</span>
-        <span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;./cache/shp&quot;</span><span class="p">)</span>
+        <span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">temp_file_path</span><span class="p">(</span><span class="s2">&quot;.shp&quot;</span><span class="p">))</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">out_dir</span><span class="p">):</span>
             <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">out_dir</span><span class="p">)</span>
         <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">in_shp</span><span class="p">)</span>
         <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="n">basename</span><span class="p">)</span>
-        <span class="c1"># download_from_url(in_shp, out_dir=out_dir, verbose=False)</span>
         <span class="n">download_file</span><span class="p">(</span><span class="n">in_shp</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
         <span class="n">files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="s2">&quot;*.shp&quot;</span><span class="p">)))</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -16725,6 +17022,104 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
 
 
 
+<h3 id="leafmap.leafmap.Map.marker_cluster" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">marker_cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="n">add_marker</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+
+
+<a href="#leafmap.leafmap.Map.marker_cluster" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Captures user inputs and add markers to the map.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>event</code></td>
+        <td><code>str</code></td>
+        <td><p>[description]. Defaults to 'click'.</p></td>
+        <td><code>&#39;click&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>add_marker</code></td>
+        <td><code>bool</code></td>
+        <td><p>If True, add markers to the map. Defaults to True.</p></td>
+        <td><code>True</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>object</code></td>
+      <td><p>a marker cluster.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>leafmap/leafmap.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">marker_cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="n">add_marker</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Captures user inputs and add markers to the map.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        event (str, optional): [description]. Defaults to &#39;click&#39;.</span>
+<span class="sd">        add_marker (bool, optional): If True, add markers to the map. Defaults to True.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: a marker cluster.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">coordinates</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">markers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">marker_cluster</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">MarkerCluster</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Marker Cluster&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">last_click</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">all_clicks</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">add_marker</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">marker_cluster</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">handle_interaction</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">latlon</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;coordinates&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="s2">&quot;click&quot;</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;click&quot;</span><span class="p">:</span>
+            <span class="n">coordinates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">latlon</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last_click</span> <span class="o">=</span> <span class="n">latlon</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">all_clicks</span> <span class="o">=</span> <span class="n">coordinates</span>
+            <span class="k">if</span> <span class="n">add_marker</span><span class="p">:</span>
+                <span class="n">markers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ipyleaflet</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">latlon</span><span class="p">))</span>
+                <span class="n">marker_cluster</span><span class="o">.</span><span class="n">markers</span> <span class="o">=</span> <span class="n">markers</span>
+        <span class="k">elif</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;mousemove&quot;</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+    <span class="c1"># cursor style: https://www.w3schools.com/cssref/pr_class_cursor.asp</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">default_style</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cursor&quot;</span><span class="p">:</span> <span class="s2">&quot;crosshair&quot;</span><span class="p">}</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">on_interaction</span><span class="p">(</span><span class="n">handle_interaction</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
 <h3 id="leafmap.leafmap.Map.oam_search" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">oam_search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">info_mode</span><span class="o">=</span><span class="s1">&#39;on_click&#39;</span><span class="p">,</span> <span class="n">layer_args</span><span class="o">=</span><span class="p">{},</span> <span class="n">add_image</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
@@ -18785,6 +19180,8 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
         <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;fullscreen_control&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="k">if</span> <span class="s2">&quot;scale_control&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
         <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;scale_control&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="s2">&quot;search_control&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;search_control&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 
     <span class="n">m</span> <span class="o">=</span> <span class="n">Map</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
