@@ -4560,6 +4560,19 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
         <span class="k">try</span><span class="p">:</span>
             <span class="n">layer_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_layer_names</span><span class="p">()</span>
 
+            <span class="n">map_dict</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;ROADMAP&quot;</span><span class="p">:</span> <span class="s2">&quot;Google Maps&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;SATELLITE&quot;</span><span class="p">:</span> <span class="s2">&quot;Google Satellite&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;TERRAIN&quot;</span><span class="p">:</span> <span class="s2">&quot;Google Terrain&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;HYBRID&quot;</span><span class="p">:</span> <span class="s2">&quot;Google Hybrid&quot;</span><span class="p">,</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">basemap</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">basemap</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">in</span> <span class="n">map_dict</span><span class="p">:</span>
+                    <span class="n">layer</span> <span class="o">=</span> <span class="n">get_google_map</span><span class="p">(</span><span class="n">basemap</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span>
+                    <span class="k">return</span>
+
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">basemap</span><span class="p">,</span> <span class="n">xyzservices</span><span class="o">.</span><span class="n">TileProvider</span><span class="p">):</span>
                 <span class="n">name</span> <span class="o">=</span> <span class="n">basemap</span><span class="o">.</span><span class="n">name</span>
                 <span class="n">url</span> <span class="o">=</span> <span class="n">basemap</span><span class="o">.</span><span class="n">build_url</span><span class="p">()</span>
@@ -5232,7 +5245,7 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
 <span class="sd">            zoom (int, optional): Initial map zoom level. Defaults to 5.</span>
 <span class="sd">            position (str, optional): Position of the minimap. Defaults to &quot;bottomright&quot;.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">layers</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_basemap</span><span class="p">(</span><span class="s2">&quot;ROADMAP&quot;</span><span class="p">)]</span>
+        <span class="n">layers</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_basemap</span><span class="p">(</span><span class="s2">&quot;Esri.WorldImagery&quot;</span><span class="p">)]</span>
         <span class="n">minimap</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
             <span class="n">zoom_control</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">attribution_control</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -5556,7 +5569,7 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;A demo for using leafmap basemaps.&quot;&quot;&quot;</span>
         <span class="n">dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
             <span class="n">options</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">basemaps</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span>
-            <span class="n">value</span><span class="o">=</span><span class="s2">&quot;HYBRID&quot;</span><span class="p">,</span>
+            <span class="n">value</span><span class="o">=</span><span class="s2">&quot;Esri.WorldImagery&quot;</span><span class="p">,</span>
             <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Basemaps&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
@@ -8408,6 +8421,19 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
 
     <span class="k">try</span><span class="p">:</span>
         <span class="n">layer_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_layer_names</span><span class="p">()</span>
+
+        <span class="n">map_dict</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;ROADMAP&quot;</span><span class="p">:</span> <span class="s2">&quot;Google Maps&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;SATELLITE&quot;</span><span class="p">:</span> <span class="s2">&quot;Google Satellite&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;TERRAIN&quot;</span><span class="p">:</span> <span class="s2">&quot;Google Terrain&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;HYBRID&quot;</span><span class="p">:</span> <span class="s2">&quot;Google Hybrid&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">basemap</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">basemap</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">in</span> <span class="n">map_dict</span><span class="p">:</span>
+                <span class="n">layer</span> <span class="o">=</span> <span class="n">get_google_map</span><span class="p">(</span><span class="n">basemap</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span>
+                <span class="k">return</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">basemap</span><span class="p">,</span> <span class="n">xyzservices</span><span class="o">.</span><span class="n">TileProvider</span><span class="p">):</span>
             <span class="n">name</span> <span class="o">=</span> <span class="n">basemap</span><span class="o">.</span><span class="n">name</span>
@@ -11947,7 +11973,7 @@ see https://github.com/Leaflet/Leaflet.markercluster.</p></td>
 <span class="sd">        zoom (int, optional): Initial map zoom level. Defaults to 5.</span>
 <span class="sd">        position (str, optional): Position of the minimap. Defaults to &quot;bottomright&quot;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">layers</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_basemap</span><span class="p">(</span><span class="s2">&quot;ROADMAP&quot;</span><span class="p">)]</span>
+    <span class="n">layers</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_basemap</span><span class="p">(</span><span class="s2">&quot;Esri.WorldImagery&quot;</span><span class="p">)]</span>
     <span class="n">minimap</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
         <span class="n">zoom_control</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">attribution_control</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -16321,7 +16347,7 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A demo for using leafmap basemaps.&quot;&quot;&quot;</span>
     <span class="n">dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
         <span class="n">options</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">basemaps</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span>
-        <span class="n">value</span><span class="o">=</span><span class="s2">&quot;HYBRID&quot;</span><span class="p">,</span>
+        <span class="n">value</span><span class="o">=</span><span class="s2">&quot;Esri.WorldImagery&quot;</span><span class="p">,</span>
         <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Basemaps&quot;</span><span class="p">,</span>
     <span class="p">)</span>
 

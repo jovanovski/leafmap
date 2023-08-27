@@ -4537,6 +4537,11 @@ Map            (<span title="folium.folium.Map">Map</span>)
         <span class="kn">import</span> <span class="nn">xyzservices</span>
 
         <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">basemap</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;ROADMAP&quot;</span><span class="p">,</span> <span class="s2">&quot;SATELLITE&quot;</span><span class="p">,</span> <span class="s2">&quot;HYBRID&quot;</span><span class="p">,</span> <span class="s2">&quot;TERRAIN&quot;</span><span class="p">]:</span>
+                <span class="n">layer</span> <span class="o">=</span> <span class="n">get_google_map</span><span class="p">(</span><span class="n">basemap</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;folium&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                <span class="n">layer</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="k">return</span>
+
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">basemap</span><span class="p">,</span> <span class="n">xyzservices</span><span class="o">.</span><span class="n">TileProvider</span><span class="p">):</span>
                 <span class="n">name</span> <span class="o">=</span> <span class="n">basemap</span><span class="o">.</span><span class="n">name</span>
                 <span class="n">url</span> <span class="o">=</span> <span class="n">basemap</span><span class="o">.</span><span class="n">build_url</span><span class="p">()</span>
@@ -7513,6 +7518,11 @@ Map            (<span title="folium.folium.Map">Map</span>)
     <span class="kn">import</span> <span class="nn">xyzservices</span>
 
     <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">basemap</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;ROADMAP&quot;</span><span class="p">,</span> <span class="s2">&quot;SATELLITE&quot;</span><span class="p">,</span> <span class="s2">&quot;HYBRID&quot;</span><span class="p">,</span> <span class="s2">&quot;TERRAIN&quot;</span><span class="p">]:</span>
+            <span class="n">layer</span> <span class="o">=</span> <span class="n">get_google_map</span><span class="p">(</span><span class="n">basemap</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;folium&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">layer</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="k">return</span>
+
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">basemap</span><span class="p">,</span> <span class="n">xyzservices</span><span class="o">.</span><span class="n">TileProvider</span><span class="p">):</span>
             <span class="n">name</span> <span class="o">=</span> <span class="n">basemap</span><span class="o">.</span><span class="n">name</span>
             <span class="n">url</span> <span class="o">=</span> <span class="n">basemap</span><span class="o">.</span><span class="n">build_url</span><span class="p">()</span>

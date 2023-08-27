@@ -1298,6 +1298,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#leafmap.common.get_google_map" class="md-nav__link">
+    get_google_map()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#leafmap.common.get_local_tile_layer" class="md-nav__link">
     get_local_tile_layer()
   </a>
@@ -4856,6 +4863,13 @@
         <li class="md-nav__item">
   <a href="#leafmap.common.get_geometry_type" class="md-nav__link">
     get_geometry_type()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leafmap.common.get_google_map" class="md-nav__link">
+    get_google_map()
   </a>
   
 </li>
@@ -15834,6 +15848,168 @@ Source code adapted from https://github.com/mapbox/rasterio/blob/master/rasterio
             <span class="k">return</span> <span class="s2">&quot;No &#39;type&#39; field found in the GeoJSON data.&quot;</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">e</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="leafmap.common.get_google_map" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_google_map</span><span class="p">(</span><span class="n">map_type</span><span class="o">=</span><span class="s1">&#39;HYBRID&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s1">&#39;ipyleaflet&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#leafmap.common.get_google_map" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Gets Google basemap tile layer.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>map_type</code></td>
+        <td><code>str</code></td>
+        <td><p>Can be one of "ROADMAP", "SATELLITE", "HYBRID" or "TERRAIN". Defaults to 'HYBRID'.</p></td>
+        <td><code>&#39;HYBRID&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>show</code></td>
+        <td><code>bool</code></td>
+        <td><p>Whether to add the layer to the map. Defaults to True.</p></td>
+        <td><code>True</code></td>
+      </tr>
+      <tr>
+        <td><code>api_key</code></td>
+        <td><code>str</code></td>
+        <td><p>The Google Maps API key. Defaults to None.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>**kwargs</code></td>
+        <td></td>
+        <td><p>Additional arguments to pass to ipyleaflet.TileLayer().</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>leafmap/common.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_google_map</span><span class="p">(</span>
+    <span class="n">map_type</span><span class="o">=</span><span class="s2">&quot;HYBRID&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;ipyleaflet&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Gets Google basemap tile layer.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        map_type (str, optional): Can be one of &quot;ROADMAP&quot;, &quot;SATELLITE&quot;, &quot;HYBRID&quot; or &quot;TERRAIN&quot;. Defaults to &#39;HYBRID&#39;.</span>
+<span class="sd">        show (bool, optional): Whether to add the layer to the map. Defaults to True.</span>
+<span class="sd">        api_key (str, optional): The Google Maps API key. Defaults to None.</span>
+<span class="sd">        **kwargs: Additional arguments to pass to ipyleaflet.TileLayer().</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">allow_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ROADMAP&quot;</span><span class="p">,</span> <span class="s2">&quot;SATELLITE&quot;</span><span class="p">,</span> <span class="s2">&quot;HYBRID&quot;</span><span class="p">,</span> <span class="s2">&quot;TERRAIN&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">map_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">allow_types</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;map_type must be one of the following: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">allow_types</span><span class="p">))</span>
+        <span class="k">return</span>
+
+    <span class="k">if</span> <span class="n">api_key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;GOOGLE_MAPS_API_KEY&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">api_key</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="n">MAP_TILES</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;ROADMAP&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/</span><span class="si">{z}</span><span class="s2">/</span><span class="si">{y}</span><span class="s2">/</span><span class="si">{x}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;attribution&quot;</span><span class="p">:</span> <span class="s2">&quot;Esri&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Esri.WorldStreetMap&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;SATELLITE&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/</span><span class="si">{z}</span><span class="s2">/</span><span class="si">{y}</span><span class="s2">/</span><span class="si">{x}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;attribution&quot;</span><span class="p">:</span> <span class="s2">&quot;Esri&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Esri.WorldImagery&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;TERRAIN&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/</span><span class="si">{z}</span><span class="s2">/</span><span class="si">{y}</span><span class="s2">/</span><span class="si">{x}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;attribution&quot;</span><span class="p">:</span> <span class="s2">&quot;Esri&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Esri.WorldTopoMap&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;HYBRID&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/</span><span class="si">{z}</span><span class="s2">/</span><span class="si">{y}</span><span class="s2">/</span><span class="si">{x}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;attribution&quot;</span><span class="p">:</span> <span class="s2">&quot;Esri&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Esri.WorldImagery&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">}</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;Google Maps API key is required to use Google Maps. You can generate one from https://bit.ly/3sw0THG and use geemap.set_api_key(), defaulting to Esri basemaps.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">MAP_TILES</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;ROADMAP&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;https://mt1.google.com/vt/lyrs=m&amp;x=</span><span class="se">{{</span><span class="s2">x</span><span class="se">}}</span><span class="s2">&amp;y=</span><span class="se">{{</span><span class="s2">y</span><span class="se">}}</span><span class="s2">&amp;z=</span><span class="se">{{</span><span class="s2">z</span><span class="se">}}</span><span class="s2">&amp;key=</span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;attribution&quot;</span><span class="p">:</span> <span class="s2">&quot;Google&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Google Maps&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;SATELLITE&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;https://mt1.google.com/vt/lyrs=s&amp;x=</span><span class="se">{{</span><span class="s2">x</span><span class="se">}}</span><span class="s2">&amp;y=</span><span class="se">{{</span><span class="s2">y</span><span class="se">}}</span><span class="s2">&amp;z=</span><span class="se">{{</span><span class="s2">z</span><span class="se">}}</span><span class="s2">&amp;key=</span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;attribution&quot;</span><span class="p">:</span> <span class="s2">&quot;Google&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Google Satellite&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;TERRAIN&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;https://mt1.google.com/vt/lyrs=p&amp;x=</span><span class="se">{{</span><span class="s2">x</span><span class="se">}}</span><span class="s2">&amp;y=</span><span class="se">{{</span><span class="s2">y</span><span class="se">}}</span><span class="s2">&amp;z=</span><span class="se">{{</span><span class="s2">z</span><span class="se">}}</span><span class="s2">&amp;key=</span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;attribution&quot;</span><span class="p">:</span> <span class="s2">&quot;Google&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Google Terrain&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;HYBRID&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;https://mt1.google.com/vt/lyrs=y&amp;x=</span><span class="se">{{</span><span class="s2">x</span><span class="se">}}</span><span class="s2">&amp;y=</span><span class="se">{{</span><span class="s2">y</span><span class="se">}}</span><span class="s2">&amp;z=</span><span class="se">{{</span><span class="s2">z</span><span class="se">}}</span><span class="s2">&amp;key=</span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;attribution&quot;</span><span class="p">:</span> <span class="s2">&quot;Google&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Google Hybrid&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">}</span>
+
+    <span class="k">if</span> <span class="s2">&quot;max_zoom&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;max_zoom&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">24</span>
+
+    <span class="k">if</span> <span class="n">backend</span> <span class="o">==</span> <span class="s2">&quot;ipyleaflet&quot;</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">ipyleaflet</span>
+
+        <span class="n">layer</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span>
+            <span class="n">url</span><span class="o">=</span><span class="n">MAP_TILES</span><span class="p">[</span><span class="n">map_type</span><span class="p">][</span><span class="s2">&quot;url&quot;</span><span class="p">],</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">MAP_TILES</span><span class="p">[</span><span class="n">map_type</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+            <span class="n">attribution</span><span class="o">=</span><span class="n">MAP_TILES</span><span class="p">[</span><span class="n">map_type</span><span class="p">][</span><span class="s2">&quot;attribution&quot;</span><span class="p">],</span>
+            <span class="n">visible</span><span class="o">=</span><span class="n">show</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">backend</span> <span class="o">==</span> <span class="s2">&quot;folium&quot;</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">folium</span>
+
+        <span class="n">layer</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span>
+            <span class="n">tiles</span><span class="o">=</span><span class="n">MAP_TILES</span><span class="p">[</span><span class="n">map_type</span><span class="p">][</span><span class="s2">&quot;url&quot;</span><span class="p">],</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">MAP_TILES</span><span class="p">[</span><span class="n">map_type</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+            <span class="n">attr</span><span class="o">=</span><span class="n">MAP_TILES</span><span class="p">[</span><span class="n">map_type</span><span class="p">][</span><span class="s2">&quot;attribution&quot;</span><span class="p">],</span>
+            <span class="n">overlay</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">control</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;backend must be either &#39;ipyleaflet&#39; or &#39;folium&#39;&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">layer</span>
 </code></pre></div>
         </details>
     </div>
@@ -27180,14 +27356,14 @@ Can be "bucket-owner" or "requester". Defaults to "bucket-owner".</p></td>
 
 
 <h2 id="leafmap.common.set_api_key" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">set_api_key</span><span class="p">(</span><span class="n">token_name</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">set_api_key</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;GOOGLE_MAPS_API_KEY&#39;</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.common.set_api_key" class="headerlink" title="Permanent link">&para;</a></h2>
 
     <div class="doc doc-contents ">
 
-      <p>Sets an API key as an environment variable.</p>
+      <p>Sets the Google Maps API key. You can generate one from https://bit.ly/3sw0THG.</p>
 
 <p><strong>Parameters:</strong></p>
 <table>
@@ -27201,38 +27377,29 @@ Can be "bucket-owner" or "requester". Defaults to "bucket-owner".</p></td>
   </thead>
   <tbody>
       <tr>
-        <td><code>token_name</code></td>
+        <td><code>key</code></td>
         <td><code>str</code></td>
-        <td><p>The token name.</p></td>
+        <td><p>The Google Maps API key.</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
-        <td><code>api_key</code></td>
+        <td><code>name</code></td>
         <td><code>str</code></td>
-        <td><p>The API key.</p></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>m</code></td>
-        <td><code>ipyleaflet.Map | folium.Map</code></td>
-        <td><p>A Map instance.. Defaults to None.</p></td>
-        <td><code>None</code></td>
+        <td><p>The name of the environment variable. Defaults to "GOOGLE_MAPS_API_KEY".</p></td>
+        <td><code>&#39;GOOGLE_MAPS_API_KEY&#39;</code></td>
       </tr>
   </tbody>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/common.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">set_api_key</span><span class="p">(</span><span class="n">token_name</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sets an API key as an environment variable.</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">set_api_key</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;GOOGLE_MAPS_API_KEY&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sets the Google Maps API key. You can generate one from https://bit.ly/3sw0THG.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        token_name (str): The token name.</span>
-<span class="sd">        api_key (str): The API key.</span>
-<span class="sd">        m (ipyleaflet.Map | folium.Map, optional): A Map instance.. Defaults to None.</span>
+<span class="sd">        key (str): The Google Maps API key.</span>
+<span class="sd">        name (str, optional): The name of the environment variable. Defaults to &quot;GOOGLE_MAPS_API_KEY&quot;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">token_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">api_key</span>
-    <span class="k">if</span> <span class="n">m</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">m</span><span class="o">.</span><span class="n">api_keys</span><span class="p">[</span><span class="n">token_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">api_key</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
 </code></pre></div>
         </details>
     </div>
