@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.5">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
@@ -6385,9 +6385,10 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
 
         <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The image file does not exist.&quot;</span><span class="p">)</span>
-            <span class="k">return</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The image file does not exist.&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
 
         <span class="k">if</span> <span class="n">colormap</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">colormap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">inferno</span>
@@ -6398,7 +6399,10 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">colormap</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">colormap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">colormap</span><span class="p">)</span>
 
-        <span class="n">da</span> <span class="o">=</span> <span class="n">rioxarray</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">masked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">da</span> <span class="o">=</span> <span class="n">rioxarray</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">masked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">da</span> <span class="o">=</span> <span class="n">image</span>
 
         <span class="c1"># print(da.rio.nodata)</span>
 
@@ -14323,9 +14327,10 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
 
     <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The image file does not exist.&quot;</span><span class="p">)</span>
-        <span class="k">return</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The image file does not exist.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
 
     <span class="k">if</span> <span class="n">colormap</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">colormap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">inferno</span>
@@ -14336,7 +14341,10 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">colormap</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
         <span class="n">colormap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">colormap</span><span class="p">)</span>
 
-    <span class="n">da</span> <span class="o">=</span> <span class="n">rioxarray</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">masked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">da</span> <span class="o">=</span> <span class="n">rioxarray</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">masked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">da</span> <span class="o">=</span> <span class="n">image</span>
 
     <span class="c1"># print(da.rio.nodata)</span>
 
